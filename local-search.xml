@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>3NF范式</title>
+    <link href="/2021/07/14/3NF%E8%8C%83%E5%BC%8F/"/>
+    <url>/2021/07/14/3NF%E8%8C%83%E5%BC%8F/</url>
+    
+    <content type="html"><![CDATA[<h5 id="NF是normal-form，是数据库设计的原则。"><a href="#NF是normal-form，是数据库设计的原则。" class="headerlink" title="NF是normal form，是数据库设计的原则。"></a>NF是normal form，是数据库设计的原则。</h5><h4 id="1、1NF"><a href="#1、1NF" class="headerlink" title="1、1NF"></a>1、1NF</h4><h5 id="要求每个字段都是原子不可分的。"><a href="#要求每个字段都是原子不可分的。" class="headerlink" title="要求每个字段都是原子不可分的。"></a>要求每个字段都是原子不可分的。</h5><p>假如学校要建立一个所有学生信息的数据库，有一个字段是学生的家庭住址。</p><p>字段如下：<br>中国湖南省邵阳市隆回县顺子镇王炸村1号。</p><p>这个字段可以切割成4个字段：</p><p>国籍，省份，市，具体地址</p><h4 id="2、2NF"><a href="#2、2NF" class="headerlink" title="2、2NF"></a>2、2NF</h4><h5 id="要求每张表都要有一个主键，其它记录完全依赖主键。"><a href="#要求每张表都要有一个主键，其它记录完全依赖主键。" class="headerlink" title="要求每张表都要有一个主键，其它记录完全依赖主键。"></a>要求每张表都要有一个主键，其它记录完全依赖主键。</h5><p>例如，如果花名册里只有名字，没有学号，则重名的话会很麻烦。</p><h4 id="3、3NF"><a href="#3、3NF" class="headerlink" title="3、3NF"></a>3、3NF</h4><h5 id="所有字段只能依赖主键，不得依赖于其它字段。消除依赖传递。"><a href="#所有字段只能依赖主键，不得依赖于其它字段。消除依赖传递。" class="headerlink" title="所有字段只能依赖主键，不得依赖于其它字段。消除依赖传递。"></a>所有字段只能依赖主键，不得依赖于其它字段。消除依赖传递。</h5><p>例如，如下表：</p><p><img src="/img/3nf1.png"></p><p>姓名、地址和电话都依赖于旺旺，而旺旺依赖于订单号、商品号。</p><p>解决办法：分割成两张表。</p><p><img src="/img/3nf2.png"></p><p>————————————————<br>版权声明：本文为CSDN博主「shun_smile」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/shun_smile/article/details/80273969">https://blog.csdn.net/shun_smile/article/details/80273969</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据库基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>mysql</tag>
+      
+      <tag>面试，数据库</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>java面向对象</title>
     <link href="/2021/07/14/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
     <url>/2021/07/14/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
