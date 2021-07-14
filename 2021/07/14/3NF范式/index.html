@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      275 字
+      1.7k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      17
        分钟
     </span>
   
@@ -252,7 +252,43 @@
 <p>姓名、地址和电话都依赖于旺旺，而旺旺依赖于订单号、商品号。</p>
 <p>解决办法：分割成两张表。</p>
 <p><img src="/img/3nf2.png" srcset="/img/loading.gif" lazyload></p>
-<p>————————————————<br>版权声明：本文为CSDN博主「shun_smile」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/shun_smile/article/details/80273969">https://blog.csdn.net/shun_smile/article/details/80273969</a></p>
+<h2 id="后期补充"><a href="#后期补充" class="headerlink" title="后期补充"></a>后期补充</h2><p>设计关系数据库时，遵从不同的规范要求，设计出合理的关系型数据库，这些不同的规范要求被称为不同的范式，各种范式呈递次规范，<strong>越高的范式数据库冗余越小</strong>。</p>
+<p>目前<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93">关系数据库</a>有六种范式：<strong>第一范式（1NF）、第二范式（2NF）、第三范式（3NF）、巴斯-科德范式（BCNF）、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%AC%AC%E5%9B%9B%E8%8C%83%E5%BC%8F">第四范式</a>(4NF）和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%AC%AC%E4%BA%94%E8%8C%83%E5%BC%8F">第五范式</a>（5NF，又称完美范式）</strong>。满足最低要求的范式是第一范式（1NF）。在第一范式的基础上进一步满足更多规范要求的称为第二范式（2NF），其余范式以次类推。<strong>一般来说，数据库只需满足第三范式(3NF）就行了</strong>。</p>
+<p><strong>第一范式（1NF）：强调数据表的原子性</strong></p>
+<p>所谓第一范式（1NF）是指在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B">关系模型</a>中，对于添加的一个规范要求，所有的域都应该是原子性的，即数据库表的每一列都是不可分割的原子数据项，而不能是集合，数组，记录等非原子数据项。即实体中的某个属性有多个值时，必须拆分为不同的属性。在符合第一范式（1NF）表中的每个域值只能是实体的一个属性或一个属性的一部分。简而言之，第一范式就是无重复的域。</p>
+<p><strong>第二范式（2NF）：在1NF基础上，消除了非主属性对于码的部分函数依赖</strong></p>
+<p>（sno, pno）-&gt;sname   sno-&gt;sname  pno-&gt;sname   =&gt;sname部分函数依赖于（sno, pno）</p>
+<p>在1NF的基础上，非码属性必须完全依赖于候选码（在1NF基础上消除非主属性对主码的部分函数依赖）</p>
+<p>第二范式（2NF）要求实体的属性完全依赖于主关键字。所谓完全依赖是指不能存在仅依赖主关键字一部分的属性，如果存在，那么这个属性和主关键字的这一部分应该分离出来形成一个新的实体，新实体与原实体之间是一对多的关系。为实现区分通常需要为表加上一个列，以存储各个实例的唯一标识。简而言之，第二范式就是在第一范式的基础上属性完全依赖于主键。</p>
+<p><strong>第三范式（3NF）：在2NF的基础上，消除了非主属性对于码的传递函数依赖</strong></p>
+<p>在2NF基础上，任何非主<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B1%9E%E6%80%A7">属性</a>不依赖于其它非主属性（在2NF基础上消除传递依赖）</p>
+<p><strong>巴斯-科德范式（BCNF）：在3NF的基础上，消除了主属性对于码的部分函数依赖和传递函数依赖</strong></p>
+<p>Boyce-Codd Normal Form（巴斯-科德范式）</p>
+<p>在3NF基础上，任何非主属性不能对主键子集依赖（在3NF基础上消除对主码子集的依赖）</p>
+<p><em>通俗解释：</em></p>
+<p>第一范式（1NF）：数据表中的每一列（每个字段）必须是不可拆分的最小单元，也就是确保每一列的原子性；</p>
+<p> <img src="/img/3nf3.png" srcset="/img/loading.gif" lazyload></p>
+<p>第二范式（2NF）：满足1NF后，要求表中的所有列，都必须依赖于主键，而不能有任何一列与主键没有关系，也就是说一个表只描述一件事情；</p>
+<p> <img src="/img/3nf4.png" srcset="/img/loading.gif" lazyload></p>
+<p>第三范式（3NF）：必须先满足第二范式（2NF），要求：表中的每一列只与主键直接相关而不是间接相关，（表中的每一列只能依赖于主键）；</p>
+<p> <img src="/img/3nf5.png" srcset="/img/loading.gif" lazyload></p>
+<p><em>ER图：</em></p>
+<p>一、那么什么是E-R模型？</p>
+<p>　E-R模型即实体-联系模型，E-R模型的提出基于这样一种认识，数据库总是存储现实世界中有意义的数据，而现实世界是由一组实体和实体的联系组，E-R模型可以成功描述数据库所存储的数据。</p>
+<p>二、为什么要设计E-R模型？</p>
+<p>　设计E-R模型能够更有效和更好的模拟现实世界。</p>
+<p>三、E-R模型的基本要素</p>
+<ol>
+<li>实体 ：实体是E-R模型的基本对象，是现实世界中各种事物的抽象，凡是可以相互区别，并可以被识别的事、物概念等均可认为是实体。在一个单位中，具有共性的一类实体可以划分为一个实体集，例如，学生李明，黄颖等都是实体，为了便于描述，可以定义学生这样的一个实体集，所有学生都是这个集合的成员。</li>
+</ol>
+<p>2)属性：每个实体都具有各种特征，称其为实体的属性，如学生有学号，姓名，年龄等属性。实体的属性值是数据库存储的主要数据。能唯一标识实体的属性或属性组称为实体键，如一个实体有多个键存在。则可从中选取一个作为主键。</p>
+<p>3)联系：实体间会存在各种关系，如人与人之间可能存在领导与雇员关系等，实体间的关系被抽象为联系。</p>
+<p>四、E-R图的四个组成的部分</p>
+<p>矩形框:表示实体，在矩形框中写上实体的名字</p>
+<p>椭圆形框:表示实体或联系的属性</p>
+<p>菱形框:表示联系，在框中记入联系名</p>
+<p>连线:实体与属性之间；实体与联系之间；联系与属性之间用直线相连，（对于一对一联系，要在两个实体连线方向各写1； 对于一对多联系，要在一的一方写1，多的一方写N；对于多对多关系，则要在两个实体连线方向各写N,M。)。</p>
+<p><img src="/img/3nf6.png" srcset="/img/loading.gif" lazyload> </p>
 
             </div>
             <hr>
