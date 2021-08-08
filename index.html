@@ -180,6 +180,71 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/08/01/golang%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/" target="_self">
+          <img src="/img/golang.webp" srcset="/img/loading.gif" lazyload alt="golang面试整理">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/08/01/golang%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/" target="_self">
+          golang面试整理
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/01/golang%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/" target="_self">
+          
+          
+            
+          
+          1.项目中用到的锁Go中锁分为两种：
+
+互斥锁
+读写锁
+
+互斥锁并发程序对公共资源访问的限制最常见的就是使用互斥锁的方式。在Go中，sync.Mutex 提供了互斥锁的实现。
+简单使用示例：
+123456789101112131415func main() &#123;var mutex sync.Mutexcount := 0for r := 0; r &lt; 50; r++ &#123;  
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-01 10:11" pubdate>
+              2021-08-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/golang%E9%9D%A2%E8%AF%95%E9%A2%98/">golang面试题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/golang/">golang</a>
+            
+              <a href="/tags/%E9%9D%A2%E8%AF%95/">面试</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/07/21/java%E5%9F%BA%E7%A1%80%E9%97%AE%E9%A2%98/" target="_self">
           <img src="/img/501.webp" srcset="/img/loading.gif" lazyload alt="java基础问题">
         </a>
@@ -435,9 +500,9 @@ long
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/mysql/">mysql</a>
-            
               <a href="/tags/%E9%9D%A2%E8%AF%95/">面试</a>
+            
+              <a href="/tags/mysql/">mysql</a>
             
               <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
             
