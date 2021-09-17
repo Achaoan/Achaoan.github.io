@@ -4,6 +4,437 @@
   
   
   <entry>
+    <title>java面试36问</title>
+    <link href="/2021/08/25/java%E9%9D%A2%E8%AF%9536%E9%97%AE/"/>
+    <url>/2021/08/25/java%E9%9D%A2%E8%AF%9536%E9%97%AE/</url>
+    
+    <content type="html"><![CDATA[<h2 id="谈谈你对-Java-平台的理解？“Java-是解释执行”，这句话正确吗？"><a href="#谈谈你对-Java-平台的理解？“Java-是解释执行”，这句话正确吗？" class="headerlink" title="谈谈你对 Java 平台的理解？“Java 是解释执行”，这句话正确吗？"></a>谈谈你对 Java 平台的理解？“Java 是解释执行”，这句话正确吗？</h2><p>Java 本身是一种面向对象的语言，最显著的特性有两个方面，一是所谓的“<strong>书写一次，到处运行</strong>”（Write once, run anywhere），能够非常容易地获得跨平台能力；另外就是<strong>垃圾收集</strong>（GC, Garbage Collection），Java 通过垃圾收集器（Garbage Collector）回收分配内存，大部分情况下，程序员不需要自己操心内存的分配和回收。</p><p>我们日常会接触到 JRE（Java Runtime Environment）或者 JDK（Java Development Kit）。 JRE，也就是 Java 运行环境，包含了 JVM 和 Java 类库，以及一些模块等。而 JDK 可以看作是 JRE 的一个超集，提供了更多工具，比如编译器、各种诊断工具等。</p><p>对于“Java 是解释执行”这句话，这个说法不太准确。我们开发的 Java 的源代码，首先通过 Javac 编译成为字节码（bytecode），然后，在运行时，通过 Java 虚拟机（JVM）内嵌的解释器将字节码转换成为最终的机器码。但是常见的 JVM，比如我们大多数情况使用的 Oracle JDK 提供的 Hotspot JVM，都提供了 JIT（Just-In-Time）编译器，也就是通常所说的动态编译器，JIT 能够在运行时将热点代码编译成机器码，这种情况下部分热点代码就属于<strong>编译执行</strong>，而不是解释执行了。</p><h2 id="请对比-Exception-和-Error，另外，运行时异常与一般异常有什么区别？"><a href="#请对比-Exception-和-Error，另外，运行时异常与一般异常有什么区别？" class="headerlink" title="请对比 Exception 和 Error，另外，运行时异常与一般异常有什么区别？"></a>请对比 Exception 和 Error，另外，运行时异常与一般异常有什么区别？</h2><p>Exception 和 Error 都是继承了 Throwable 类，在 Java 中只有 Throwable 类型的实例才可以被抛出（throw）或者捕获（catch），它是异常处理机制的基本组成类型。</p><p>Exception 和 Error 体现了 Java 平台设计者对不同异常情况的分类。Exception 是程序正常运行中，可以预料的意外情况，可能并且应该被捕获，进行相应处理。</p><p>Error 是指在正常情况下，不大可能出现的情况，绝大部分的 Error 都会导致程序（比如 JVM 自身）处于非正常的、不可恢复状态。既然是非正常情况，所以不便于也不需要捕获，常见的比如 OutOfMemoryError 之类，都是 Error 的子类。</p><p>Exception 又分为<strong>可检查</strong>（checked）异常和<strong>不检查</strong>（unchecked）异常，可检查异常在源代码里必须显式地进行捕获处理，这是编译期检查的一部分。前面我介绍的不可查的 Error，是 Throwable 不是 Exception。</p><p>不检查异常就是所谓的运行时异常，类似 NullPointerException、ArrayIndexOutOfBoundsException 之类，通常是可以编码避免的逻辑错误，具体根据需要来判断是否需要捕获，并不会在编译期强制要求。</p><h2 id="谈谈-final、finally、-finalize-有什么不同？"><a href="#谈谈-final、finally、-finalize-有什么不同？" class="headerlink" title="谈谈 final、finally、 finalize 有什么不同？"></a>谈谈 final、finally、 finalize 有什么不同？</h2><p>final 可以用来修饰类、方法、变量，分别有不同的意义，final 修饰的 class 代表不可以继承扩展，final 的变量是不可以修改的，而 final 的方法也是不可以重写的（override）。</p><p>finally 则是 Java 保证重点代码一定要被执行的一种机制。我们可以使用 try-finally 或者 try-catch-finally 来进行类似关闭 JDBC 连接、保证 unlock 锁等动作。</p><p>finalize 是基础类 java.lang.Object 的一个方法，它的设计目的是保证对象在被垃圾收集前完成特定资源的回收。finalize 机制现在已经不推荐使用，并且在 JDK 9 开始被标记为 deprecated。</p><h2 id="强引用、软引用、弱引用、幻象引用有什么区别？具体使用场景是什么？"><a href="#强引用、软引用、弱引用、幻象引用有什么区别？具体使用场景是什么？" class="headerlink" title="强引用、软引用、弱引用、幻象引用有什么区别？具体使用场景是什么？"></a>强引用、软引用、弱引用、幻象引用有什么区别？具体使用场景是什么？</h2><p>不同的引用类型，主要体现的是<strong>对象不同的可达性（reachable）状态和对垃圾收集的影响</strong>。</p><p>所谓强引用（“Strong” Reference），就是我们最常见的普通对象引用，只要还有强引用指向一个对象，就能表明对象还“活着”，垃圾收集器不会碰这种对象。对于一个普通的对象，如果没有其他的引用关系，只要超过了引用的作用域或者显式地将相应（强）引用赋值为 null，就是可以被垃圾收集的了，当然具体回收时机还是要看垃圾收集策略。</p><p>软引用（SoftReference），是一种相对强引用弱化一些的引用，可以让对象豁免一些垃圾收集，只有当 JVM 认为内存不足时，才会去试图回收软引用指向的对象。JVM 会确保在抛出 OutOfMemoryError 之前，清理软引用指向的对象。软引用通常用来实现内存敏感的缓存，如果还有空闲内存，就可以暂时保留缓存，当内存不足时清理掉，这样就保证了使用缓存的同时，不会耗尽内存。</p><p>弱引用（WeakReference）并不能使对象豁免垃圾收集，仅仅是提供一种访问在弱引用状态下对象的途径。这就可以用来构建一种没有特定约束的关系，比如，维护一种非强制性的映射关系，如果试图获取时对象还在，就使用它，否则重现实例化。它同样是很多缓存实现的选择。</p><p>对于幻象引用，有时候也翻译成虚引用，你不能通过它访问对象。幻象引用仅仅是提供了一种确保对象被 finalize 以后，做某些事情的机制，比如，通常用来做所谓的 Post-Mortem 清理机制，我在专栏上一讲中介绍的 Java 平台自身 Cleaner 机制等，也有人利用幻象引用监控对象的创建和销毁。</p><h2 id="理解-Java-的字符串，String、StringBuffer、StringBuilder-有什么区别？"><a href="#理解-Java-的字符串，String、StringBuffer、StringBuilder-有什么区别？" class="headerlink" title="理解 Java 的字符串，String、StringBuffer、StringBuilder 有什么区别？"></a>理解 Java 的字符串，String、StringBuffer、StringBuilder 有什么区别？</h2><p>String 是 Java 语言非常基础和重要的类，提供了构造和管理字符串的各种基本逻辑。它是典型的 Immutable 类，被声明成为 final class，所有属性也都是 final 的。也由于它的不可变性，类似拼接、裁剪字符串等动作，都会产生新的 String 对象。由于字符串操作的普遍性，所以相关操作的效率往往对应用性能有明显影响。</p><p>StringBuffer 是为解决上面提到拼接产生太多中间对象的问题而提供的一个类，我们可以用 append 或者 add 方法，把字符串添加到已有序列的末尾或者指定位置。StringBuffer 本质是一个线程安全的可修改字符序列，它保证了线程安全，也随之带来了额外的性能开销，所以除非有线程安全的需要，不然还是推荐使用它的后继者，也就是 StringBuilder。</p><p>StringBuilder 是 Java 1.5 中新增的，在能力上和 StringBuffer 没有本质区别，但是它去掉了线程安全的部分，有效减小了开销，是绝大部分情况下进行字符串拼接的首选。</p><h2 id="谈谈-Java-反射机制，动态代理是基于什么原理？"><a href="#谈谈-Java-反射机制，动态代理是基于什么原理？" class="headerlink" title="谈谈 Java 反射机制，动态代理是基于什么原理？"></a>谈谈 Java 反射机制，动态代理是基于什么原理？</h2><p>反射机制是 Java 语言提供的一种基础功能，赋予程序在运行时<strong>自省</strong>（introspect，官方用语）的能力。通过反射我们可以直接操作类或者对象，比如获取某个对象的类定义，获取类声明的属性和方法，调用方法或者构造对象，甚至可以运行时修改类定义。</p><p>动态代理是一种方便运行时动态构建代理、动态处理代理方法调用的机制，很多场景都是利用类似机制做到的，比如用来包装 RPC 调用、面向切面的编程（AOP）。</p><p>实现动态代理的方式很多，比如 JDK 自身提供的动态代理，就是主要利用了上面提到的反射机制。还有其他的实现方式，比如利用传说中更高性能的字节码操作机制，类似 ASM、cglib（基于 ASM）、Javassist 等。</p><h2 id="int-和-Integer-有什么区别？谈谈-Integer-的值缓存范围。"><a href="#int-和-Integer-有什么区别？谈谈-Integer-的值缓存范围。" class="headerlink" title="int 和 Integer 有什么区别？谈谈 Integer 的值缓存范围。"></a>int 和 Integer 有什么区别？谈谈 Integer 的值缓存范围。</h2><p> int 是我们常说的整形数字，是 Java 的 8 个原始数据类型（Primitive Types，boolean、 byte 、short、char、int、float、double、long）之一。Java 语言虽然号称一切都是对 象，但原始数据类型是例外。</p><p>Integer 是 int 对应的包装类，它有一个 int 类型的字段存储数据，并且提供了基本操作， 比如数学运算、int 和字符串之间转换等。在 Java 5 中，引入了自动装箱和自动拆箱功能 （boxing/unboxing），Java 可以根据上下文，自动进行转换，极大地简化了相关编程。 关于 Integer 的值缓存，这涉及 Java 5 中另一个改进。构建 Integer 对象的传统方式是直 接调用构造器，直接 new 一个对象。但是根据实践，我们发现大部分数据操作都是集中在 有限的、较小的数值范围，因而，在 Java 5 中新增了静态工厂方法 valueOf，在调用它的 时候会利用一个缓存机制，带来了明显的性能改进。按照 Javadoc，这个值默认缓存是 -128 到 127 之间。</p><h1 id="对比-Vector、ArrayList、LinkedList-有何区别？"><a href="#对比-Vector、ArrayList、LinkedList-有何区别？" class="headerlink" title="对比 Vector、ArrayList、LinkedList 有何区别？"></a>对比 Vector、ArrayList、LinkedList 有何区别？</h1><p>这三者都是实现集合框架中的 List，也就是所谓的有序集合，因此具体功能也比较近似，比如都提供按照位置进行定位、添加或者删除的操作，都提供迭代器以遍历其内容等。但因为具体的设计区别，在行为、性能、线程安全等方面，表现又有很大不同。</p><p>Vector 是 Java 早期提供的<strong>线程安全的动态数组</strong>，如果不需要线程安全，并不建议选择，毕竟同步是有额外开销的。Vector 内部是使用对象数组来保存数据，可以根据需要自动的增加容量，当数组已满时，会创建新的数组，并拷贝原有数组数据。</p><p>ArrayList 是应用更加广泛的<strong>动态数组</strong>实现，它本身不是线程安全的，所以性能要好很多。与 Vector 近似，ArrayList 也是可以根据需要调整容量，不过两者的调整逻辑有所区别，Vector 在扩容时会提高 1 倍，而 ArrayList 则是增加 50%。</p><p>LinkedList 顾名思义是 Java 提供的<strong>双向链表</strong>，所以它不需要像上面两种那样调整容量，它也不是线程安全的。</p><h1 id="如何保证容器是线程安全的？ConcurrentHashMap-如何实现高效地线程安全？"><a href="#如何保证容器是线程安全的？ConcurrentHashMap-如何实现高效地线程安全？" class="headerlink" title="如何保证容器是线程安全的？ConcurrentHashMap 如何实现高效地线程安全？"></a>如何保证容器是线程安全的？ConcurrentHashMap 如何实现高效地线程安全？</h1><p>Java 提供了不同层面的线程安全支持。在传统集合框架内部，除了 Hashtable 等同步容器，还提供了所谓的同步包装器（Synchronized Wrapper），我们可以调用 Collections 工具类提供的包装方法，来获取一个同步的包装容器（如 Collections.synchronizedMap），但是它们都是利用非常粗粒度的同步方式，在高并发情况下，性能比较低下。</p><p>另外，更加普遍的选择是利用并发包提供的线程安全容器类，它提供了：</p><ul><li>各种并发容器，比如 ConcurrentHashMap、CopyOnWriteArrayList。</li><li>各种线程安全队列（Queue/Deque），如 ArrayBlockingQueue、SynchronousQueue。</li><li>各种有序容器的线程安全版本等。</li></ul><p>具体保证线程安全的方式，包括有从简单的 synchronize 方式，到基于更加精细化的，比如基于分离锁实现的 ConcurrentHashMap 等并发实现等。具体选择要看开发的场景需求，总体来说，并发包内提供的容器通用场景，远优于早期的简单同步实现。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>java基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>MongoDB基础以及相关问题</title>
+    <link href="/2021/08/18/MongoDB%E5%9F%BA%E7%A1%80%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+    <url>/2021/08/18/MongoDB%E5%9F%BA%E7%A1%80%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>java基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>java</tag>
+      
+      <tag>mongoDB</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Svn和Git区别</title>
+    <link href="/2021/08/18/Svn%E5%92%8CGit%E5%8C%BA%E5%88%AB/"/>
+    <url>/2021/08/18/Svn%E5%92%8CGit%E5%8C%BA%E5%88%AB/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>java基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>java</tag>
+      
+      <tag>Git</tag>
+      
+      <tag>SVN</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Elasticsearch基础及相关问题</title>
+    <link href="/2021/08/18/Elasticsearch%E5%9F%BA%E7%A1%80%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+    <url>/2021/08/18/Elasticsearch%E5%9F%BA%E7%A1%80%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>java基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Redis基础及相关问题</title>
+    <link href="/2021/08/18/Redis%E5%9F%BA%E7%A1%80%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+    <url>/2021/08/18/Redis%E5%9F%BA%E7%A1%80%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>java基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>java</tag>
+      
+      <tag>Redis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mysql基础及相关问题</title>
+    <link href="/2021/08/18/Mysql%E5%9F%BA%E7%A1%80%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+    <url>/2021/08/18/Mysql%E5%9F%BA%E7%A1%80%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>数据库基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>java</tag>
+      
+      <tag>MySQL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Tomcat和Undertow的优缺点</title>
+    <link href="/2021/08/18/Tomcat%E5%92%8CUndertow%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9/"/>
+    <url>/2021/08/18/Tomcat%E5%92%8CUndertow%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>java基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>java</tag>
+      
+      <tag>Tomcat</tag>
+      
+      <tag>Undertow</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>消息队列</title>
+    <link href="/2021/08/18/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+    <url>/2021/08/18/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>java基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SpringCloud启动过程</title>
+    <link href="/2021/08/18/SpringCloud%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B/"/>
+    <url>/2021/08/18/SpringCloud%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>SpringCloud</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>java</tag>
+      
+      <tag>SpringCloud</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SpringCloud基础及相关问题</title>
+    <link href="/2021/08/18/SpringCloud%E5%9F%BA%E7%A1%80%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+    <url>/2021/08/18/SpringCloud%E5%9F%BA%E7%A1%80%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>java基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>java</tag>
+      
+      <tag>SpringCloud</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SpringBoot基础及相关问题</title>
+    <link href="/2021/08/18/SpringBoot%E5%9F%BA%E7%A1%80%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+    <url>/2021/08/18/SpringBoot%E5%9F%BA%E7%A1%80%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>java基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>java</tag>
+      
+      <tag>SpringBoot</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mybatis基础及相关问题</title>
+    <link href="/2021/08/18/Mybatis%E5%9F%BA%E7%A1%80%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+    <url>/2021/08/18/Mybatis%E5%9F%BA%E7%A1%80%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>java基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>java</tag>
+      
+      <tag>MyBatis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Spring基础及相关问题</title>
+    <link href="/2021/08/18/Spring%E5%9F%BA%E7%A1%80%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+    <url>/2021/08/18/Spring%E5%9F%BA%E7%A1%80%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>java基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>java</tag>
+      
+      <tag>Spring</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JVM基础及回收算法</title>
+    <link href="/2021/08/18/JVM%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/"/>
+    <url>/2021/08/18/JVM%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>java基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>java</tag>
+      
+      <tag>JVM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>java线程</title>
+    <link href="/2021/08/18/java%E7%BA%BF%E7%A8%8B/"/>
+    <url>/2021/08/18/java%E7%BA%BF%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[<h2 id="java多线程的实现方式"><a href="#java多线程的实现方式" class="headerlink" title="java多线程的实现方式"></a>java多线程的实现方式</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>java多线程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>java</tag>
+      
+      <tag>多线程</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>golang面试整理</title>
     <link href="/2021/08/01/golang%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/"/>
     <url>/2021/08/01/golang%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/</url>
@@ -20,9 +451,9 @@
     
     <tags>
       
-      <tag>golang</tag>
-      
       <tag>面试</tag>
+      
+      <tag>golang</tag>
       
     </tags>
     
@@ -89,7 +520,7 @@
     <link href="/2021/07/14/java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
     <url>/2021/07/14/java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     
-    <content type="html"><![CDATA[<table><thead><tr><th>基本数据类型</th><th>占用字节</th><th>大小</th></tr></thead><tbody><tr><td>b yte</td><td>1</td><td>8位，最大存储数据量是255，存放的数据范围是-128~127之间</td></tr><tr><td>short</td><td>2</td><td>16位，最<a href="http://lib.csdn.net/base/hadoop">大数据</a>存储量是65536，数据范围是-32768~32767之间。</td></tr><tr><td>int</td><td>4</td><td>32位，最大数据存储容量是2的32次方减1，数据范围是负的2的31次方到正的2的31次方减1。</td></tr><tr><td>long</td><td>8</td><td>64位，最大数据存储容量是2的64次方减1，数据范围为负的2的63次方到正的2的63次方减1。</td></tr><tr><td>float</td><td>4</td><td>32位，数据范围在3.4e-45~1.4e38，直接赋值时必须在数字后加上f或F。</td></tr><tr><td>double</td><td>8</td><td>64位，数据范围在4.9e-324~1.8e308，赋值时可以加d或D也可以不加。</td></tr><tr><td>char</td><td>2</td><td>16位，存储Unicode码，用单引号赋值。</td></tr><tr><td>boolean</td><td></td><td>true/false</td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<table><thead><tr><th>基本数据类型</th><th>占用字节</th><th>大小</th></tr></thead><tbody><tr><td>byte</td><td>1</td><td>8位，最大存储数据量是255，存放的数据范围是-128~127之间</td></tr><tr><td>short</td><td>2</td><td>16位，最<a href="http://lib.csdn.net/base/hadoop">大数据</a>存储量是65536，数据范围是-32768~32767之间。</td></tr><tr><td>int</td><td>4</td><td>32位，最大数据存储容量是2的32次方减1，数据范围是负的2的31次方到正的2的31次方减1。</td></tr><tr><td>long</td><td>8</td><td>64位，最大数据存储容量是2的64次方减1，数据范围为负的2的63次方到正的2的63次方减1。</td></tr><tr><td>float</td><td>4</td><td>32位，数据范围在3.4e-45~1.4e38，直接赋值时必须在数字后加上f或F。</td></tr><tr><td>double</td><td>8</td><td>64位，数据范围在4.9e-324~1.8e308，赋值时可以加d或D也可以不加。</td></tr><tr><td>char</td><td>2</td><td>16位，存储Unicode码，用单引号赋值。</td></tr><tr><td>boolean</td><td></td><td>true/false</td></tr></tbody></table>]]></content>
     
     
     <categories>
@@ -128,9 +559,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>mysql</tag>
+      
+      <tag>面试</tag>
       
       <tag>数据库</tag>
       
