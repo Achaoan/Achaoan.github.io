@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.5k 字
+      3.8k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      25
+      41
        分钟
     </span>
   
@@ -237,7 +237,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 分钟前
+                  本文最后更新于：9 分钟前
                 
               </p>
             
@@ -314,6 +314,81 @@
 <li>不可重复读（Non-Repeatable Reads)：事务 A 多次读取同一数据，事务B在事务A多次读取的过程中，对数据作了更新并提交，导致事务A多次读取同一数据时，结果不一致。</li>
 <li>幻读（Phantom Reads)：幻读与不可重复读类似。它发生在一个事务A读取了几行数据，接着另一个并发事务B插入了一些数据时。在随后的查询中，事务A就会发现多了一些原本不存在的记录，就好像发生了幻觉一样，所以称为幻读。</li>
 </ul>
+<h4 id="7-MySQL面试题"><a href="#7-MySQL面试题" class="headerlink" title="7.MySQL面试题"></a>7.MySQL面试题</h4><ol>
+<li><p>MySQL事务的特性和隔离级别</p>
+</li>
+<li><p>MySQL索引有哪些？</p>
+</li>
+<li><p>聚簇索引和非聚簇索引区别</p>
+</li>
+<li><p>MySQL底层结构</p>
+</li>
+<li><p>B+树怎么保持平衡？</p>
+</li>
+<li><p>MySQL的存储引擎有哪些以及区别？</p>
+</li>
+<li><p>MySQL基础架构</p>
+<ol>
+<li>连接器</li>
+<li>分析器</li>
+<li>优化器</li>
+<li>执行器</li>
+<li>查询缓存</li>
+<li>存储引擎</li>
+</ol>
+</li>
+<li><p>Mysql优化</p>
+</li>
+<li><p>MySQL设计一个抢单系统，不用那个其他</p>
+<p>注意点：1、不能多余票数 2、同一个用户不能抢多张票</p>
+<p>本文采用MySQL下的InnoDB存储引擎实现秒杀，MySQL支持很多存储引擎，每种存储引擎都有不同的特性。若使用的是其他存储存储引擎或者数据库情况将会有所不同。</p>
+<p>秒杀有以下几种特点：</p>
+<p>1、不能出现超卖。假设秒杀的商品只有100个库存，结果你卖出了101个，甚至更多，在这种情况下，你的秒杀也谈不上秒杀。</p>
+<p>2、一个用户只能买一个商品。</p>
+<p>3、高性能，直观感受就是快，否则就谈不上秒杀。</p>
+<p>首先我们简单的模拟一下场景，建表。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE TABLE `sdb_goods_promotion` (<br>  `goods_id` int(10) unsigned NOT NULL AUTO_INCREMENT,<br>  `stock` int(10) unsigned NOT NULL,<br>  PRIMARY KEY (`goods_id`)<br>) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4<br><br>促销商品表：负责存储需要促销的商品，以及库存量。<br><br>CREATE TABLE `sdb_goods_promotion_buyer` (<br>  `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,<br>  `goods_id` int(10) unsigned NOT NULL,<br>  PRIMARY KEY (`uid`)<br>) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4<br></code></pre></td></tr></table></figure>
+
+<p>买家订单表：记录买家的购买信息。</p>
+<p>大部分人都会这么做：</p>
+<p>begin transaction</p>
+<p>已卖出数量：select count(goods_id) from sdb_goods_promotion_buyer where goods_id=xxxx</p>
+<p>总库存量：select stock from sdb_goods_promotion where goods_id=xxxx</p>
+<p>if(已卖出数量&gt;=总库存量){<br>rollback</p>
+<p>}</p>
+<p>当前用户已买数量：select count(goods_id) from sdb_goods_promotion_buyer where uid=xxx;</p>
+<p>if(当前用户已买数量&gt;=购买限制){<br>rollback</p>
+<p>}</p>
+<p>insert into sdb_goods_promotion_buyer(uid,goods_id) value(XXX,XXXX);</p>
+<p>commit;</p>
+<p>像上面这种做法，把数据读到内存中进行运算，最终入库的操作，既不能避免用户购买次数限制，也不能避免超卖情况。</p>
+<p>接下来，我们一一解决购买次数限制以及超卖情况。</p>
+<p>1、用户多次购买问题</p>
+<p>我们只需要在买家订单表里面添加一个唯一索引(uid,goods_id)就可以解决这个问题。当有用户重复购买时就会跑出异常。从而在数据库层面解决了这个问题。但在代码中我们需要捕获(catch)这个异常，抛出用户便于理解的信息。 </p>
+<p>2、超卖问题</p>
+<p>在sdb_goods_promotion表的goods_id列上加上索引，然后利用悲观锁。select * from sdb_goods_promotion where goods_id=xxx for update;</p>
+<p>以上我们就解决了用户多次购买和超卖问题。</p>
+<p>但是，如果我们用户体量有几十万或者更大的时候，这种做法是很慢，且不合理的。所以我们还是得继续优化。</p>
+<p>在上面的例子中我们为了保证一致性而引入了事务和悲观锁，悲观锁是一种很耗时的操作。但是现在我们为了性能却要牺牲一致性了。</p>
+<p>在秒杀中，我们要知道什么能接受 ，什么不能接受。比如在上面的例子中我们不能接受一个用户买多个商品，也不能接受超卖，但是我们是可以接受少卖的。只要我们把少卖的商品误差做到足够小。</p>
+<p>在上面的例子中，用户重复购买是不会发生的，因为我们使用MySQL的唯一索引实现。我们为了性能去掉了事务，所以 for upate锁就自然失效了。我们之前使用count()这种方式统计已卖出的数量，然后在内存中进行运算得出剩余的商品数量，进行订单的生成操作。但是现在我们去掉了事务，就再也不能保证一致性了。</p>
+<p>所以，我们接下来可以修改一下商品促销表(sdb_goods_promotion):</p>
+<p>新增一列already_sales(已卖出的商品数量),表结构如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE TABLE `sdb_goods_promotion` (<br>  `goods_id` int(10) unsigned NOT NULL AUTO_INCREMENT,<br>  `already_sales` int(10) unsigned NOT NULL DEFAULT &#x27;0&#x27;,<br>  `stock` int(10) unsigned NOT NULL,<br>  PRIMARY KEY (`goods_id`)<br>) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4<br></code></pre></td></tr></table></figure>
+
+<p>接下来当有用户进行购买时，我们的库存减少操作如下：</p>
+<p>update sdb_goods_promotion set already_sales=already+1 where goods_id=XXXX</p>
+<p>如果商品只有1000个，但是同时有2000个人抢购会发生什么情况？</p>
+<p>虽然没有了事务，但是update语句会天然的有行锁，前1000个用户都会执行成功，返回生效行数为1，后1000个用户都会失败，虽然不会失败，但是返回生效行数为0。所以在程序中只要判断update的生效行数就知道是否抢购成功了。</p>
+<p>但是我们在库存减少和订单生成应该是要保持一致性的，所以当用户重复购买生成订单失败时，我们需要把扣减的商品数量加上去。</p>
+<p>$res = update sdb_goods_promotion set already_sales=already+1 where goods_id=XXXX and stock&gt;already_sales</p>
+<p>if($res){<br>try{<br>insert into sdb_goods_promotion_buyer(uid,goods_id) value(XXX,XXXX);</p>
+<p>}catch(\Exection $exection){<br>update sdb_goods_promotion set already_sales=already-1 where goods_id=XXXX and already_sales-1&gt;0</p>
+<p>}</p>
+<p>}else{<br>echo “商品已卖完”;exit;</p>
+<p>}</p>
+</li>
+</ol>
 
             </div>
             <hr>

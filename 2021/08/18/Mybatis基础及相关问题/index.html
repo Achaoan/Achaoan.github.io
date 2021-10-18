@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      390 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      5
        分钟
     </span>
   
@@ -237,12 +237,20 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 个月前
+                  本文最后更新于：5 分钟前
                 
               </p>
             
             <div class="markdown-body">
-              
+              <ol>
+<li><p>常用的标签</p>
+</li>
+<li><p>resultType和resultMap区别</p>
+</li>
+<li><p>怎么实现pojo的一个字段接收list？</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--column不做限制，可以为任意表的字段，而property须为type 定义的pojo属性--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">resultMap</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;唯一的标识&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;映射的pojo对象&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">id</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;表的主键字段，或者可以为查询语句中的别名字段&quot;</span> <span class="hljs-attr">jdbcType</span>=<span class="hljs-string">&quot;字段类型&quot;</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;映射pojo对象的主键属性&quot;</span> /&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;表的一个字段（可以为任意表的一个字段）&quot;</span> <span class="hljs-attr">jdbcType</span>=<span class="hljs-string">&quot;字段类型&quot;</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;映射到pojo对象的一个属性（须为type定义的pojo对象中的一个属性）&quot;</span>/&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">association</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;pojo的一个对象属性&quot;</span> <span class="hljs-attr">javaType</span>=<span class="hljs-string">&quot;pojo关联的pojo对象&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;关联pojo对象对应表的主键字段&quot;</span> <span class="hljs-attr">jdbcType</span>=<span class="hljs-string">&quot;字段类型&quot;</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;关联pojo对象的主席属性&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">result</span>  <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;任意表的字段&quot;</span> <span class="hljs-attr">jdbcType</span>=<span class="hljs-string">&quot;字段类型&quot;</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;关联pojo对象的属性&quot;</span>/&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">association</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- 集合中的property须为oftype定义的pojo对象的属性--&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">collection</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;pojo的集合属性&quot;</span> <span class="hljs-attr">ofType</span>=<span class="hljs-string">&quot;集合中的pojo对象&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;集合中pojo对象对应的表的主键字段&quot;</span> <span class="hljs-attr">jdbcType</span>=<span class="hljs-string">&quot;字段类型&quot;</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;集合中pojo对象的主键属性&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;可以为任意表的字段&quot;</span> <span class="hljs-attr">jdbcType</span>=<span class="hljs-string">&quot;字段类型&quot;</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;集合中的pojo对象的属性&quot;</span> /&gt;</span>  <br>  <span class="hljs-tag">&lt;/<span class="hljs-name">collection</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">resultMap</span>&gt;</span><br><br></code></pre></td></tr></table></figure></li>
+</ol>
+
             </div>
             <hr>
             <div>

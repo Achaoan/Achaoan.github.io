@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>SpringCloud启动过程 - Dachao&#39;s bolg</title>
+  <title>SpringBoot启动过程 - Dachao&#39;s bolg</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="SpringCloud启动过程">
+            <span class="h2" id="subtitle" title="SpringBoot启动过程">
               
             </span>
 
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      396 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      6
        分钟
     </span>
   
@@ -233,16 +233,18 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">SpringCloud启动过程</h1>
+            <h1 style="display: none">SpringBoot启动过程</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 个月前
+                  本文最后更新于：2 分钟前
                 
               </p>
             
             <div class="markdown-body">
-              
+              <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//1.创建一个Spring应用 </span><br>  <span class="hljs-keyword">new</span> SpringApplication(primarySources).run(args)<br>  <span class="hljs-comment">//2.new SpringApplication</span><br>      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SpringApplication</span><span class="hljs-params">(ResourceLoader resourceLoader, Class&lt;?&gt;... primarySources)</span> </span>&#123;<br>        <span class="hljs-comment">//  2.1 资源加载</span><br>          <span class="hljs-keyword">this</span>.resourceLoader = resourceLoader;<br>          Assert.notNull(primarySources, <span class="hljs-string">&quot;PrimarySources must not be null&quot;</span>);<br>          <span class="hljs-comment">//2.2 将主类放入linkedHastSet当中</span><br>          <span class="hljs-keyword">this</span>.primarySources = <span class="hljs-keyword">new</span> LinkedHashSet&lt;&gt;(Arrays.asList(primarySources));<br>          <span class="hljs-comment">//2.3 应用类型的选择</span><br>          <span class="hljs-keyword">this</span>.webApplicationType = WebApplicationType.deduceFromClasspath();<br>          <span class="hljs-comment">//2.4 设置初始化(构造)器</span><br>          setInitializers((Collection) getSpringFactoriesInstances(ApplicationContextInitializer.class));<br>          <span class="hljs-comment">//2.5 设置（应用）监听器 </span><br>          setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));<br>          <span class="hljs-comment">//2.6 配置应用的主方法所在类</span><br>          <span class="hljs-keyword">this</span>.mainApplicationClass = deduceMainApplicationClass();<br>      &#125;<br>  <span class="hljs-comment">//3. run(args);</span><br>      <span class="hljs-function"><span class="hljs-keyword">public</span> ConfigurableApplicationContext <span class="hljs-title">run</span><span class="hljs-params">(String... args)</span> </span>&#123;<br>          <span class="hljs-comment">//3.1 计时器开始</span><br>          StopWatch stopWatch = <span class="hljs-keyword">new</span> StopWatch();<br>          stopWatch.start();<br>          ConfigurableApplicationContext context = <span class="hljs-keyword">null</span>;<br>          Collection&lt;SpringBootExceptionReporter&gt; exceptionReporters = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>          <span class="hljs-comment">//3.2 配置参数</span><br>          configureHeadlessProperty();<br>          <span class="hljs-comment">//3.3 配置运行监听器</span><br>          SpringApplicationRunListeners listeners = getRunListeners(args);<br>          <span class="hljs-comment">//3.4 监听器开始工作</span><br>          listeners.starting();<br>          <span class="hljs-keyword">try</span> &#123;<br>              ApplicationArguments applicationArguments = <span class="hljs-keyword">new</span> DefaultApplicationArguments(args);<br>              <span class="hljs-comment">//3.5准备环境--监听器和应用参数</span><br>              ConfigurableEnvironment environment = prepareEnvironment(listeners, applicationArguments);<br>              <span class="hljs-comment">//3.6配置忽略的Bean信息</span><br>              configureIgnoreBeanInfo(environment);<br>              <span class="hljs-comment">//3.7打印图案</span><br>              Banner printedBanner = printBanner(environment);<br>              <span class="hljs-comment">//3.8 创建应用上下文</span><br>              context = createApplicationContext();<br>              <span class="hljs-comment">//3.9 异常报告</span><br>              exceptionReporters = getSpringFactoriesInstances(SpringBootExceptionReporter.class,<br>                      <span class="hljs-keyword">new</span> Class[] &#123; ConfigurableApplicationContext.class &#125;, context);<br>              <span class="hljs-comment">//3.10 准备上下文</span><br>              prepareContext(context, environment, listeners, applicationArguments, printedBanner);<br>              <span class="hljs-comment">//3.11 刷新上下文</span><br>              refreshContext(context);<br>              <span class="hljs-comment">//3.12 刷新上下文善后</span><br>              afterRefresh(context, applicationArguments);<br>              <span class="hljs-comment">//3.13 计时器结束</span><br>              stopWatch.stop();<br>              <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.logStartupInfo) &#123;<br>                  <span class="hljs-keyword">new</span> StartupInfoLogger(<span class="hljs-keyword">this</span>.mainApplicationClass).logStarted(getApplicationLog(), stopWatch);<br>              &#125;<br>              <span class="hljs-comment">//3.14 启动所有监听器</span><br>              listeners.started(context);<br>              callRunners(context, applicationArguments);<br>          &#125;<br>          <span class="hljs-keyword">catch</span> (Throwable ex) &#123;<br>              <span class="hljs-comment">//3.15 处理运行失败</span><br>              handleRunFailure(context, ex, exceptionReporters, listeners);<br>              <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(ex);<br>          &#125;<br>  <br>          <span class="hljs-keyword">try</span> &#123;<br>              <span class="hljs-comment">//3.16 将应用上下文传递给每一个监听器</span><br>              listeners.running(context);<br>          &#125;<br>          <span class="hljs-keyword">catch</span> (Throwable ex) &#123;<br>              handleRunFailure(context, ex, exceptionReporters, <span class="hljs-keyword">null</span>);<br>              <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(ex);<br>          &#125;<br>          <span class="hljs-keyword">return</span> context;<br>      &#125;<br></code></pre></td></tr></table></figure>
+
+
             </div>
             <hr>
             <div>
