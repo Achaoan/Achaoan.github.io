@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>java数组基础以及对比 - Dachao&#39;s bolg</title>
+  <title>动态代理的实现两种方式和区别 - Dachao&#39;s bolg</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -158,12 +158,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/4-1.png') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="java数组基础以及对比">
+            <span class="h2" id="subtitle" title="动态代理的实现两种方式和区别">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-07-15 23:28" pubdate>
-        2021年7月15日 晚上
+      <time datetime="2021-10-20 17:53" pubdate>
+        2021年10月20日 下午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      720 字
+      10 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      1
        分钟
     </span>
   
@@ -233,51 +233,17 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">java数组基础以及对比</h1>
+            <h1 style="display: none">动态代理的实现两种方式和区别</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 天前
+                  本文最后更新于：24 分钟前
                 
               </p>
             
             <div class="markdown-body">
-              <p>数组基础/后续补充，暂时简单整理</p>
-<p><img src="/img/4-1.png" srcset="/img/loading.gif" lazyload></p>
-<p>对比</p>
-<p><img src="/img/4-2.png" srcset="/img/loading.gif" lazyload></p>
-<p>面试题</p>
-<ol>
-<li><p>介绍一下ArrayList，扩容，1.5</p>
-</li>
-<li><p>构造方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//1、长度</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ArrayList</span><span class="hljs-params">(<span class="hljs-keyword">int</span> var1)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (var1 &gt; <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">this</span>.elementData = <span class="hljs-keyword">new</span> Object[var1];<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">if</span> (var1 != <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;Illegal Capacity: &quot;</span> + var1);<br>        &#125;<br><br>        <span class="hljs-keyword">this</span>.elementData = EMPTY_ELEMENTDATA;<br>    &#125;<br><br>&#125;<br><span class="hljs-comment">//2、空</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ArrayList</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">this</span>.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;<br>&#125;<br><span class="hljs-comment">//3、collection</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ArrayList</span><span class="hljs-params">(Collection&lt;? extends E&gt; var1)</span> </span>&#123;<br>    Object[] var2 = var1.toArray();<br>    <span class="hljs-keyword">if</span> ((<span class="hljs-keyword">this</span>.size = var2.length) != <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">if</span> (var1.getClass() == ArrayList.class) &#123;<br>            <span class="hljs-keyword">this</span>.elementData = var2;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">this</span>.elementData = Arrays.copyOf(var2, <span class="hljs-keyword">this</span>.size, Object[].class);<br>        &#125;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">this</span>.elementData = EMPTY_ELEMENTDATA;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li><p>ArrayList和LinkedList区别</p>
-</li>
-<li><p>介绍一下HashMap，0.75扩容2</p>
-</li>
-<li><p>构造方法</p>
-<p>​    </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//1、var1 初始容量  var2 负载因子</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">HashMap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> var1, <span class="hljs-keyword">float</span> var2)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (var1 &lt; <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;Illegal initial capacity: &quot;</span> + var1);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">if</span> (var1 &gt; <span class="hljs-number">1073741824</span>) &#123;<br>            var1 = <span class="hljs-number">1073741824</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (var2 &gt; <span class="hljs-number">0.0F</span> &amp;&amp; !Float.isNaN(var2)) &#123;<br>            <span class="hljs-keyword">this</span>.loadFactor = var2;<br>            <span class="hljs-keyword">this</span>.threshold = tableSizeFor(var1);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;Illegal load factor: &quot;</span> + var2);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-comment">//2、var1 初始容量</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">HashMap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> var1)</span> </span>&#123;<br>    <span class="hljs-keyword">this</span>(var1, <span class="hljs-number">0.75F</span>);<br>&#125;<br><span class="hljs-comment">//3、空</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">HashMap</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">this</span>.loadFactor = <span class="hljs-number">0.75F</span>;<br>&#125;<br><span class="hljs-comment">//4、map</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">HashMap</span><span class="hljs-params">(Map&lt;? extends K, ? extends V&gt; var1)</span> </span>&#123;<br>    <span class="hljs-keyword">this</span>.loadFactor = <span class="hljs-number">0.75F</span>;<br>    <span class="hljs-keyword">this</span>.putMapEntries(var1, <span class="hljs-keyword">false</span>);<br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li><p>HashMap和CurrentHashMap的区别</p>
-</li>
-<li><p>HashMap存储结构</p>
-<p>​    <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwNDA2OTM1Ng==&mid=2453141093&idx=2&sn=2784802c46f56c1fa1a1053c2c52ece0&scene=21#wechat_redirect">渣男吊打面试官</a></p>
-</li>
-<li><p>为什么用HahsMap？</p>
-<p>首先当我们需要存储数据的时候，动态数组虽然能够自动扩容，但是必须在初始时刻指定初始容量。而对于那些在编译时无法确定具体的数量即动态增长的数据，就需要用到Java集合类了。对于ArrayList 和 LinkedList，还有 Vector它们都有一些缺点，要么插入删除速度慢、要么就是遍历速度慢。那么有没有一种插入、删除、遍历都比较不错的集合类呢？于是 HashMap 就出现了。HashMap 是一个散列表，它存储的是一组键值对(key-value)的集合，并实现快速的查找。</p>
-<p>（1）为了实现快速查找，HashMap 选择了数组而不是链表。以利用数组的索引实现 O(1) 复杂度的查找效率。</p>
-<p>（2）为了利用索引查找，HashMap 引入 Hash 算法, 将 key 映射成数组下标: key -&gt; Index。</p>
-<p>（3）引入 Hash 算法又导致了 Hash 冲突。为了解决 Hash 冲突，HashMap 采用链地址法，在冲突位置转为使用链表存储。</p>
-<p>（4）链表存储过多的节点又导致了在链表上节点的查找性能的恶化。为了优化查找性能，HashMap 在链表长度超过 8 之后转而将链表转变成红黑树，以将 O(n) 复杂度的查找效率提升至 O(log n)。</p>
-<p>【综上】</p>
-<p>HashMap 存在的意义就是<strong>实现一种快速的查找并且插入、删除性能都不错的一种 K/V（key/value）数据结构</strong>。</p>
-</li>
-<li><p>HashMap是不是线程安全的？为什么？    </p>
-<p>不是</p>
-<p>多线程操作，扩容有可能造成循环链表</p>
-</li>
-</ol>
+              <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149775781">https://zhuanlan.zhihu.com/p/149775781</a></p>
+<p>后续添加</p>
 
             </div>
             <hr>
@@ -287,7 +253,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/java%E5%9F%BA%E7%A1%80/">java基础</a>
+                      <a class="hover-with-bg" href="/categories/spring/">spring</a>
                     
                   </div>
                 
@@ -297,7 +263,9 @@
                     
                       <a class="hover-with-bg" href="/tags/java/">java</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E9%9D%A2%E8%AF%95/">面试</a>
+                      <a class="hover-with-bg" href="/tags/Spring/">Spring</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ioc/">ioc</a>
                     
                   </div>
                 
@@ -314,18 +282,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/07/21/java%E5%9F%BA%E7%A1%80%E9%97%AE%E9%A2%98/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">java基础问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/07/14/java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-                        <span class="hidden-mobile">java基本数据类型</span>
+                      <a href="/2021/09/19/hashcode%E5%92%8Cequals%E7%9A%84%E5%85%B3%E7%B3%BB/">
+                        <span class="hidden-mobile">hashcode和equals的关系</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
