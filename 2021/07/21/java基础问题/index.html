@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.5k 字
+      5.6k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      58
+      59
        分钟
     </span>
   
@@ -237,7 +237,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 个月前
+                  本文最后更新于：1 天前
                 
               </p>
             
@@ -414,6 +414,12 @@
 <li>DiscardPolicy：直接丢弃任务，也不抛出异常</li>
 </ol>
 <p>傻瓜周末愉快，我是敖丙，你知道越多，你不知道越多，我们下期见。</p>
+<h3 id="网站访问量过大-session会出现很多问题怎么解决"><a href="#网站访问量过大-session会出现很多问题怎么解决" class="headerlink" title="网站访问量过大,session会出现很多问题怎么解决?"></a>网站访问量过大,session会出现很多问题怎么解决?</h3><p>1.将session用cookies 替换了，或者使用QuseryString<br>2.解决并发问题最好的方法就是锁住资源sychronized</p>
+<ol start="4">
+<li>可以做负载均衡，分散到不同的机器上</li>
+<li>可以持久化到磁盘或者数据库，减少内存占用。</li>
+<li>如果允许，适当缩短过期时间，这个是临时的方案。</li>
+</ol>
 
             </div>
             <hr>
