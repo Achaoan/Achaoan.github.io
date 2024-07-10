@@ -4,6 +4,48 @@
   
   
   <entry>
+    <title>MySQL基础知识</title>
+    <link href="/2024/07/10/MySQL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <url>/2024/07/10/MySQL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    
+    <content type="html"><![CDATA[<h1 id="一、组成"><a href="#一、组成" class="headerlink" title="一、组成"></a>一、组成</h1><p>连接器</p><p>分析器</p><p>优化器</p><p>执行器</p><p>缓存</p><p>存储引擎</p><h1 id="二、存储引擎"><a href="#二、存储引擎" class="headerlink" title="二、存储引擎"></a>二、存储引擎</h1><h1 id="三、索引"><a href="#三、索引" class="headerlink" title="三、索引"></a>三、索引</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据库基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据库</tag>
+      
+      <tag>MySQL</tag>
+      
+      <tag>java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2023/08/15/Kywq%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97%E5%8F%8A%E5%90%8C%E6%AD%A5%E7%9B%B8%E5%85%B3%E6%95%B4%E7%90%86/"/>
+    <url>/2023/08/15/Kywq%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97%E5%8F%8A%E5%90%8C%E6%AD%A5%E7%9B%B8%E5%85%B3%E6%95%B4%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<h3 id="Kywq数据清洗及同步相关整理"><a href="#Kywq数据清洗及同步相关整理" class="headerlink" title="Kywq数据清洗及同步相关整理"></a>Kywq数据清洗及同步相关整理</h3><h4 id="一、项目th-event-backend-cleansing（数据清洗）"><a href="#一、项目th-event-backend-cleansing（数据清洗）" class="headerlink" title="一、项目th-event-backend-cleansing（数据清洗）"></a>一、项目th-event-backend-cleansing（数据清洗）</h4><h5 id="gitlab地址"><a href="#gitlab地址" class="headerlink" title="gitlab地址"></a>gitlab地址</h5><p><a href="http://39.105.126.97:9080/domain-backend/th-event-backend-cleansing">http://39.105.126.97:9080/domain-backend/th-event-backend-cleansing</a></p><h5 id="部署地址"><a href="#部署地址" class="headerlink" title="部署地址"></a>部署地址</h5><p>192.168.1.161 </p><p>root/Sthq@0416   </p><h5 id="配置文件地址（配置文件修改此目录下。application-yml文件后，重启容器即可）"><a href="#配置文件地址（配置文件修改此目录下。application-yml文件后，重启容器即可）" class="headerlink" title="配置文件地址（配置文件修改此目录下。application.yml文件后，重启容器即可）"></a>配置文件地址（配置文件修改此目录下。application.yml文件后，重启容器即可）</h5><p>/mountdata/docker/data/java-project/data-cleansing/</p><h5 id="部署流程"><a href="#部署流程" class="headerlink" title="部署流程"></a>部署流程</h5><p>上传jar文件到/home/kywq/data-cleansing目录下</p><p>使用命令，查询容器地址</p><p><code>docker ps ｜grep cleansing</code></p><p>之后，将jar cp到容器根目录，命令</p><p><code>docker cp ***.jar  容器地址:app.jar</code></p><p>之后使用重启命令重启</p><p><code>docker restart 容器地址</code> </p><h6 id="注：需要在新服务器部署，在-home-kywq-data-cleansing目录下有-”启动文件“-文档，根据文档部署"><a href="#注：需要在新服务器部署，在-home-kywq-data-cleansing目录下有-”启动文件“-文档，根据文档部署" class="headerlink" title="注：需要在新服务器部署，在/home/kywq/data-cleansing目录下有 ”启动文件“ 文档，根据文档部署"></a>注：需要在新服务器部署，在/home/kywq/data-cleansing目录下有 ”启动文件“ 文档，根据文档部署</h6><h4 id="二、-项目data-migration-kywq（数据同步）"><a href="#二、-项目data-migration-kywq（数据同步）" class="headerlink" title="二、 项目data-migration-kywq（数据同步）"></a>二、 项目data-migration-kywq（数据同步）</h4><h5 id="gitlab地址-1"><a href="#gitlab地址-1" class="headerlink" title="gitlab地址"></a>gitlab地址</h5><p><a href="http://39.105.126.97:9080/domain-backend/data-migration-kywq">http://39.105.126.97:9080/domain-backend/data-migration-kywq</a></p><h5 id="部署地址-1"><a href="#部署地址-1" class="headerlink" title="部署地址"></a>部署地址</h5><p>39.105.126.97</p><p>root/Sthq0415 </p><h5 id="配置文件地址（配置文件修改此目录下。application-yml文件后，重启容器即可）-1"><a href="#配置文件地址（配置文件修改此目录下。application-yml文件后，重启容器即可）-1" class="headerlink" title="配置文件地址（配置文件修改此目录下。application.yml文件后，重启容器即可）"></a>配置文件地址（配置文件修改此目录下。application.yml文件后，重启容器即可）</h5><p>/mountdata/docker/data/java-project/data-migration-kywq-pro/</p><h5 id="部署流程-1"><a href="#部署流程-1" class="headerlink" title="部署流程"></a>部署流程</h5><p>上传jar文件到/home/kywq/data-migration-kywq-pro目录下</p><p>使用命令，查询容器地址</p><p><code>docker ps ｜grep migration</code></p><p>之后，将jar cp到容器根目录，命令</p><p><code>docker cp ***.jar  容器地址:app.jar</code></p><p>之后使用重启命令重启</p><p><code>docker restart 容器地址</code> </p><h6 id="注：需要在新服务器部署，在-home-kywq-data-migration-kywq-pro目录下有-”启动文件“-文档，根据文档部署"><a href="#注：需要在新服务器部署，在-home-kywq-data-migration-kywq-pro目录下有-”启动文件“-文档，根据文档部署" class="headerlink" title="注：需要在新服务器部署，在/home/kywq/data-migration-kywq-pro目录下有 ”启动文件“ 文档，根据文档部署"></a>注：需要在新服务器部署，在/home/kywq/data-migration-kywq-pro目录下有 ”启动文件“ 文档，根据文档部署</h6><h4 id="三、-项目data-search（数据查询）"><a href="#三、-项目data-search（数据查询）" class="headerlink" title="三、 项目data-search（数据查询）"></a>三、 项目data-search（数据查询）</h4><h5 id="gitlab地址-2"><a href="#gitlab地址-2" class="headerlink" title="gitlab地址"></a>gitlab地址</h5><p><a href="http://39.105.126.97:9080/domain-backend/data-search">http://39.105.126.97:9080/domain-backend/data-search</a></p><h5 id="部署地址-2"><a href="#部署地址-2" class="headerlink" title="部署地址"></a>部署地址</h5><p>39.105.126.97</p><p>root/Sthq0415 </p><h5 id="配置文件地址（配置文件修改此目录下。application-yml文件后，重启容器即可）-2"><a href="#配置文件地址（配置文件修改此目录下。application-yml文件后，重启容器即可）-2" class="headerlink" title="配置文件地址（配置文件修改此目录下。application.yml文件后，重启容器即可）"></a>配置文件地址（配置文件修改此目录下。application.yml文件后，重启容器即可）</h5><p>/mountdata/docker/data/java-project/data-search/</p><h5 id="部署流程-2"><a href="#部署流程-2" class="headerlink" title="部署流程"></a>部署流程</h5><p>上传jar文件到/home/kywq/data-search目录下</p><p>使用命令，查询容器地址</p><p><code>docker ps ｜grep data-search</code></p><p>之后，将jar cp到容器根目录，命令</p><p><code>docker cp ***.jar  容器地址:app.jar</code></p><p>之后使用重启命令重启</p><p><code>docker restart 容器地址</code> </p><h6 id="注：需要在新服务器部署，在-home-kywq-data-search目录下有-”启动文件“-文档，根据文档部署"><a href="#注：需要在新服务器部署，在-home-kywq-data-search目录下有-”启动文件“-文档，根据文档部署" class="headerlink" title="注：需要在新服务器部署，在/home/kywq/data-search目录下有 ”启动文件“ 文档，根据文档部署"></a>注：需要在新服务器部署，在/home/kywq/data-search目录下有 ”启动文件“ 文档，根据文档部署</h6>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title></title>
     <link href="/2022/02/24/linux%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85docker/"/>
     <url>/2022/02/24/linux%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85docker/</url>
