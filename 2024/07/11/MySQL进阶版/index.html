@@ -237,13 +237,13 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：10 分钟前
+                  本文最后更新于：几秒前
                 
               </p>
             
             <div class="markdown-body">
               <h2 id="1-存储引擎"><a href="#1-存储引擎" class="headerlink" title="1. 存储引擎"></a>1. 存储引擎</h2><h3 id="1-1-MySQL体系结构"><a href="#1-1-MySQL体系结构" class="headerlink" title="1.1 MySQL体系结构"></a>1.1 MySQL体系结构</h3><blockquote>
-<p><img src="../img/5f42ae4dbfd64c33a56a9e36d6b150b3.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/5f42ae4dbfd64c33a56a9e36d6b150b3.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h3 id="1-2-存储引擎简介"><a href="#1-2-存储引擎简介" class="headerlink" title="1.2 存储引擎简介"></a>1.2 存储引擎简介</h3><blockquote>
 <p>存储引擎就是存储数据、建立索引、更新/查询数据等技术的实现方式。存储引擎是基于表的，而不是基于库的，<strong>所以存储引擎也可被称为表类型。</strong></p>
@@ -251,21 +251,21 @@
 <p> 查询表的创建信息：<strong>show create table</strong> 表名；</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">show create table accont;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/9e9729493bd04501bc5c3eb92e348cc7.png" srcset="/img/loading.gif" lazyload> </p>
+<p><img src="img/9e9729493bd04501bc5c3eb92e348cc7.png" srcset="/img/loading.gif" lazyload> </p>
 <p>在创建表时，指定存储引擎</p>
-<p><img src="../img/31407a58d8964e248b45fad8a4c54dee-0706769.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/31407a58d8964e248b45fad8a4c54dee-0706769.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">-- 创建表，指定引擎为MyISAM<br>create table my_myisam(<br>    id int,<br>    name varchar(10)<br>) engine = MyISAM;<br></code></pre></td></tr></table></figure>
 
 <p>查看当前数据库支持的存储引擎</p>
-<p><img src="../img/aea1900c66c3407098d6ca0fba7202d4.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="1-3-存储引擎特点"><a href="#1-3-存储引擎特点" class="headerlink" title="1.3 存储引擎特点"></a>1.3 存储引擎特点</h3><p><img src="../img/2ea53424a3a34a97832f084aee8e4125.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/aea1900c66c3407098d6ca0fba7202d4.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="1-3-存储引擎特点"><a href="#1-3-存储引擎特点" class="headerlink" title="1.3 存储引擎特点"></a>1.3 存储引擎特点</h3><p><img src="img/2ea53424a3a34a97832f084aee8e4125.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>主要使用InnoDB 和 MyISAM</p>
 </blockquote>
 <p> 查看系统变量</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">show variables like &#x27;innodb_file_per_table&#x27;;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/50464cee661647ce93926fa98f711f68.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/50464cee661647ce93926fa98f711f68.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="1-3-1-InnoDB"><a href="#1-3-1-InnoDB" class="headerlink" title="1.3.1 InnoDB"></a>1.3.1 InnoDB</h4><blockquote>
 <p>                InnoDB是一种兼顾高可靠性和高性能行的通用存储引擎，在MySQL 5.5 之后，InnoDB时默认的存储引擎</p>
 <p>        <strong>特点：</strong></p>
@@ -281,7 +281,7 @@
 <p>                Extent：区</p>
 <p>                Page： 页</p>
 <p>                Pow：行 </p>
-<p>                <img src="../img/d8b0f8ec8068415fb1d31c2e41d5825b.png" srcset="/img/loading.gif" lazyload></p>
+<p>                <img src="img/d8b0f8ec8068415fb1d31c2e41d5825b.png" srcset="/img/loading.gif" lazyload></p>
 <p>        </p>
 </blockquote>
 <h4 id="1-3-2-MyISAM"><a href="#1-3-2-MyISAM" class="headerlink" title="1.3.2 MyISAM"></a>1.3.2 MyISAM</h4><blockquote>
@@ -315,36 +315,36 @@
 <p>索引（ index ）是帮助 MySQL <strong>高效获取数据</strong>的<strong>数据结构</strong> ( <strong>有序</strong> ) 。在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据， 这样就可以在这些数据结构上实现高级查找算法，这种数据结构就是索引。</p>
 <p><strong>演示：</strong></p>
 <p>表结构及其数据如下：</p>
-<p><img src="../img/f6a0f615afe24d0496b559c9cf7aaa29.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/f6a0f615afe24d0496b559c9cf7aaa29.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <p>假如我们要执行的 SQL 语句为 ： select * from user where age = 45;</p>
 <p>1). <strong>无索引</strong>情况</p>
-<p><img src="../img/811f35722ce047b8b11b7296cb12463d.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/811f35722ce047b8b11b7296cb12463d.png" srcset="/img/loading.gif" lazyload></p>
 <p>在无索引情况下，就需要从第一行开始扫描，一直扫描到最后一行，我们称之为 全表扫描，性能很低。</p>
 <p>2). <strong>有索引</strong>情况</p>
 <p>如果我们针对于这张表建立了索引，假设索引结构就是二叉树，那么也就意味着，会对 age 这个字段建立一个二叉树的索引结构</p>
-<p><img src="../img/2e0e25ac74aa4d00b7a865bba06cb344.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/2e0e25ac74aa4d00b7a865bba06cb344.png" srcset="/img/loading.gif" lazyload></p>
 <p>此时我们在进行查询时，只需要扫描三次就可以找到数据了，极大的提高的查询的效率</p>
 <p><strong>备注： 这里我们只是假设索引的结构是二叉树，介绍一下索引的大概原理，只是一个示意图，并</strong></p>
 <p><strong>不是索引的真实结构，索引的真实结构，后面会详细介绍。</strong></p>
 <p>特点：</p>
-<p><img src="../img/85c1e21c331640df993286bd71051866.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/85c1e21c331640df993286bd71051866.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="2-2-索引结构"><a href="#2-2-索引结构" class="headerlink" title="2.2 索引结构"></a>2.2 索引结构</h3><h4 id="2-2-1-概述"><a href="#2-2-1-概述" class="headerlink" title="2.2.1 概述"></a>2.2.1 <strong>概述</strong></h4><blockquote>
 <p>MySQL 的索引是在存储引擎层实现的，不同的存储引擎有不同的索引结构，主要包含以下几种：</p>
-<p><img src="../img/6efe501541f04bb8a984b9bf349ba0b2.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/6efe501541f04bb8a984b9bf349ba0b2.png" srcset="/img/loading.gif" lazyload></p>
 <p>上述是 MySQL 中所支持的所有的索引结构，接下来，我们再来看看不同的存储引擎对于索引结构的支持情况。</p>
-<p><img src="../img/a19711adef0e4e06b93eabdc9e9733e0.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/a19711adef0e4e06b93eabdc9e9733e0.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>注意： 我们平常所说的索引，如果没有特别指明，都是指B+树结构组织的索引。</strong></p>
 </blockquote>
 <h4 id="2-2-2-二叉树"><a href="#2-2-2-二叉树" class="headerlink" title="2.2.2 二叉树"></a>2.2.2 二叉树</h4><blockquote>
 <p>  假如说MySQL的索引结构采用二叉树的数据结构，比较理想的结构如下：</p>
-<p> <img src="../img/dd06dea3933b41f6971582bf63ea44b8.png" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="img/dd06dea3933b41f6971582bf63ea44b8.png" srcset="/img/loading.gif" lazyload></p>
 <p> 如果主键是顺序插入的，则会形成一个单向链表，结构如下：</p>
-<p> <img src="../img/8ec96200c7b34b60813a7af0c9ba1518.png" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="img/8ec96200c7b34b60813a7af0c9ba1518.png" srcset="/img/loading.gif" lazyload></p>
 <p> 所以，如果选择二叉树作为索引结构，会存在以下<strong>缺点</strong>：</p>
 <p> *   <strong>顺序插入时，会形成一个链表，查询性能大大降低。</strong><br> *   <strong>大数据量情况下，层级较深，检索速度慢。</strong></p>
 <p> 此时大家可能会想到，我们可以选择红黑树，红黑树是一颗自平衡二叉树，那这样即使是顺序插入数据，最终形成的数据结构也是一颗平衡的二叉树, 结构如下 :</p>
-<p> <img src="../img/4f5a8ff8266f49c1a85332676e8ce9dc.png" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="img/4f5a8ff8266f49c1a85332676e8ce9dc.png" srcset="/img/loading.gif" lazyload></p>
 <p> 但是，即使如此，由于红黑树也是一颗二叉树，所以也会存在一个<strong>缺点</strong>：</p>
 <p> *   <strong>大数据量情况下，层级较深，检索速度慢。</strong></p>
 </blockquote>
@@ -353,21 +353,21 @@
 <h4 id="2-2-3-B-Tree"><a href="#2-2-3-B-Tree" class="headerlink" title="2.2.3 B-Tree"></a>2.2.3 B-Tree</h4><blockquote>
 <p>B-Tree ， B 树是一种多叉路衡查找树，相对于二叉树， B 树每个节点可以有多个分支，即叉。以一颗最大度数（max-degree ）为 5(5 阶 ) 的 b-tree 为例，那这个 B 树每个节点最多存储 key ， 5</p>
 <p>个指针：</p>
-<p><img src="../img/58290eca1fd04febb1216bb55761a897.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/58290eca1fd04febb1216bb55761a897.png" srcset="/img/loading.gif" lazyload></p>
 <p>知识小贴士 : 树的度数指的是一个节点的子节点个数。</p>
 <p>我们可以通过一个数据结构可视化的网站来简单演示一下。 <strong><a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/BTree.html">https://www.cs.usfca.edu/~galles/visualization/BTree.html</a></strong></p>
 </blockquote>
-<p><img src="../img/e6af415dd2564e9d8e04e3dca8cf2fa8.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/e6af415dd2564e9d8e04e3dca8cf2fa8.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>插入一组数据：</strong> 100 65 169 368 900 556 780 35 215 1200 234 888 158 90 1000 88</p>
 <p>120 268 250 。<strong>然后观察一些数据插入过程中，节点的变化情况。</strong></p>
-<p><img src="../img/4b76d70ae5a4448bbe1e1ae7c0ed4013.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/4b76d70ae5a4448bbe1e1ae7c0ed4013.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>  <strong>特点：</strong></p>
 <p> *   <strong>5阶的B树，每一个节点最多存储4个key，对应5个指针。</strong><br> *   <strong>一旦节点存储的key数量到达5，就会裂变，中间元素向上分裂。</strong><br> *   <strong>在B树中，非叶子节点和叶子节点都会存放数据。</strong></p>
 </blockquote>
 <h4 id="2-2-4-B-Tree"><a href="#2-2-4-B-Tree" class="headerlink" title="2.2.4 B+Tree"></a><strong>2.2.4 B+Tree</strong></h4><blockquote>
 <p>B+Tree 是 B-Tree 的变种，我们以一颗最大度数（ max-degree ）为 4（ 4阶）的 b+tree 为例，来看一下其结构示意图：</p>
-<p><img src="../img/9c9c21380e78434992584707751df39a.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/9c9c21380e78434992584707751df39a.png" srcset="/img/loading.gif" lazyload></p>
 <p>我们可以看到，两部分：</p>
 <ul>
 <li>  绿色框框起来的部分，是索引部分，仅仅起到索引数据的作用，不存储数据。</li>
@@ -376,10 +376,10 @@
 <p>我们可以通过一个数据结构可视化的网站来简单演示一下。 <strong><a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html">https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html</a></strong></p>
 </blockquote>
 <blockquote>
-<p><img src="../img/48dd926f0bae463ea2e79e6ebd4dc94e.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/48dd926f0bae463ea2e79e6ebd4dc94e.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>插入一组数据：</strong> 100 65 169 368 900 556 780 35 215 1200 234 888 158 90 1000 88</p>
 <p>120 268 250 。<strong>然后观察一些数据插入过程中，节点的变化情况</strong>。</p>
-<p><img src="../img/6a3881523c92472ca3bfa3853ee75220.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/6a3881523c92472ca3bfa3853ee75220.png" srcset="/img/loading.gif" lazyload></p>
 <p>最终我们看到， B+Tree 与 B-Tree 相比，主要有以下三点区别：</p>
 <ul>
 <li>  <strong>所有的数据都会出现在叶子节点。</strong></li>
@@ -390,15 +390,15 @@
 <blockquote>
 <p>                上述我们所看到的结构是标准的B+Tree 的数据结构，接下来，我们再来看看 MySQL 中优化之后的B+Tree。</p>
 <p>                MySQL索引数据结构对经典的 B+Tree 进行了优化。在原 B+Tree 的基础上，增加一个指向相邻叶子节点的链表指针，就形成了带有顺序指针的B+Tree ，提高区间访问的性能，利于排序。</p>
-<p>         <img src="../img/e3fa54a0b3f64f8ba3c85d22ad77143e.png" srcset="/img/loading.gif" lazyload></p>
+<p>         <img src="img/e3fa54a0b3f64f8ba3c85d22ad77143e.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h4 id="2-2-5-Hash"><a href="#2-2-5-Hash" class="headerlink" title="2.2.5 Hash"></a><strong>2.2.5 Hash</strong></h4><p>MySQL中除了支持B+Tree索引，还支持一种索引类型-–Hash索引。</p>
 <blockquote>
 <p><strong>1). 结构</strong></p>
 <p>哈希索引就是采用一定的 hash 算法，将键值换算成新的 hash 值，映射到对应的槽位上，然后存储在hash表中。</p>
-<p><img src="../img/ed8e6a24f8dd460cbf903d394eca4a11.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/ed8e6a24f8dd460cbf903d394eca4a11.png" srcset="/img/loading.gif" lazyload></p>
 <p>如果两个 ( 或多个 ) 键值，映射到一个相同的槽位上，他们就产生了 hash 冲突（也称为 hash 碰撞），可以通过链表来解决。</p>
-<p><img src="../img/0007a0cde24d42fd888d4643c1c49c68.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/0007a0cde24d42fd888d4643c1c49c68.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <blockquote>
 <p><strong>2). 特点</strong>  </p>
@@ -419,19 +419,19 @@
 <p>C. 相对 Hash 索引， <strong>B+tree</strong> <strong>支持范围匹配及排序操作</strong>；</p>
 <h3 id="2-3-索引分类"><a href="#2-3-索引分类" class="headerlink" title="2.3 索引分类"></a>2.3 索引分类</h3><h4 id="2-3-1-索引分类"><a href="#2-3-1-索引分类" class="headerlink" title="2.3.1 索引分类"></a><strong>2.3.1</strong> <strong>索引分类</strong></h4><blockquote>
 <p>在MySQL数据库，将索引的具体类型主要分为以下几类：主键索引、唯一索引、常规索引、全文索引。</p>
-<p><img src="../img/ea5cc8c0e8cf4b549afc45c254a58821.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/ea5cc8c0e8cf4b549afc45c254a58821.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h4 id="2-3-2-聚集索引-amp-二级索引"><a href="#2-3-2-聚集索引-amp-二级索引" class="headerlink" title="2.3.2 聚集索引&amp;二级索引"></a><strong>2.3.2</strong> <strong>聚集索引</strong>&amp;<strong>二级索引</strong></h4><blockquote>
 <p>  而在在InnoDB存储引擎中，根据索引的存储形式，又可以分为以下两种：</p>
-<p> <img src="../img/1eb0bc3e944141d6a2b7c003adc19b72.png" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="img/1eb0bc3e944141d6a2b7c003adc19b72.png" srcset="/img/loading.gif" lazyload></p>
 <p> 聚集索引选取规则 :</p>
 <p> *   <strong>如果存在主键，主键索引就是聚集索引。如果不存在主键，将使用第一个唯一（UNIQUE）索引作为聚集索引。</strong><br> *   <strong>如果表没有主键，或没有合适的唯一索引，则InnoDB会自动生成一个rowid作为隐藏的聚集索引。</strong></p>
 <p> 聚集索引和二级索引的具体结构如下：</p>
-<p> <img src="../img/cbd29a843ba141db9ccec0f468225e79.png" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="img/cbd29a843ba141db9ccec0f468225e79.png" srcset="/img/loading.gif" lazyload></p>
 <p> *   <strong>聚集索引的叶子节点下挂的是这一行的数据 。</strong><br> *   <strong>二级索引的叶子节点下挂的是该字段值对应的主键值。</strong></p>
 </blockquote>
 <p>接下来，我们来分析一下，当我们执行如下的SQL语句时，具体的查找过程是什么样子的。</p>
-<p><img src="../img/c044dd12e68944dbb2c27b96d8ba53ef.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/c044dd12e68944dbb2c27b96d8ba53ef.png" srcset="/img/loading.gif" lazyload></p>
 <p>具体过程如下 :</p>
 <p>① . 由于是根据 name 字段进行查询，所以先根据 name=’Arm’ 到 name 字段的二级索引中进行匹配查</p>
 <p>      找。但是在二级索引中只能查找到 Arm 对应的主键值 10 。</p>
@@ -465,7 +465,7 @@
 <p>-- session 是查看当前会话 ;</p>
 <p>-- global 是查询全局数据 ;</p>
 <p><strong>show global status like ‘Com_______‘(七个下划线）</strong></p>
-<p><img src="../img/fcb0dce43c74433e94623b10522399a0.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/fcb0dce43c74433e94623b10522399a0.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li><p>  Com_delete: 删除次数</p>
 </li>
@@ -481,31 +481,31 @@
 <h4 id="2-5-2-慢查询日志"><a href="#2-5-2-慢查询日志" class="headerlink" title="2.5.2 慢查询日志"></a><strong>2.5.2</strong> <strong>慢查询日志</strong></h4><blockquote>
 <p>慢查询日志记录了所有执行时间超过指定参数（ long_query_time ，单位：秒，默认 10 秒）的所有SQL语句的日志。</p>
 <p>MySQL 的慢查询日志默认没有开启，我们可以查看一下系统变量 <strong>slow_query_log</strong> 。</p>
-<p><img src="../img/d70c0380a5fb4e1cbef803169c71a58d.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/d70c0380a5fb4e1cbef803169c71a58d.png" srcset="/img/loading.gif" lazyload></p>
 <p>如果要开启慢查询日志，需要在 MySQL 的配置文件（ /etc/my.cnf ）中配置如下信息：</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># 开启MySQL慢日志查询开关</span><br><span class="hljs-attr">slow_query_log</span>=<span class="hljs-number">1</span><br><span class="hljs-comment"># 设置慢日志的时间为2秒，SQL语句执行时间超过2秒，就会视为慢查询，记录慢查询日志</span><br><span class="hljs-attr">long_query_time</span>=<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
 
 <p>配置完毕之后，通过以下指令重新启动 MySQL 服务器进行测试，查看慢日志文件中记录的信息</p>
 <p><strong>/var/lib/mysql/localhost-slow.log</strong> 。</p>
 <p>然后，再次查看开关情况，慢查询日志就已经打开了。</p>
-<p><img src="../img/7c6e6b4f87b44150bcef81ec2cc8aa65.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/7c6e6b4f87b44150bcef81ec2cc8aa65.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <p> <strong>测试：</strong></p>
 <p>A. 执行如下 SQL 语句 ：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> tb_user; <span class="hljs-comment">-- 这条SQL执行效率比较高, 执行耗时 0.00sec</span><br><span class="hljs-keyword">select</span> <span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">from</span> tb_sku; <span class="hljs-comment">-- 由于tb_sku表中, 预先存入了1000w的记录, count一次,耗时13.35sec</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/7f251bbbe50a4847af78e10b19d3daf2.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/7f251bbbe50a4847af78e10b19d3daf2.png" srcset="/img/loading.gif" lazyload></p>
 <p>B. 检查慢查询日志 ：</p>
 <p>在**/var/lib/mysql**中</p>
 <p>最终我们发现，在慢查询日志中，只会记录执行时间超多我们预设时间（ 2s ）的 SQL ，执行较快的 SQL是不会记录的。</p>
-<p><img src="../img/b207beef3dc94095ad57eacb7adf8554.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/b207beef3dc94095ad57eacb7adf8554.png" srcset="/img/loading.gif" lazyload></p>
 <p>那这样，通过慢查询日志，就可以定位出执行效率比较低的SQL，从而有针对性的进行优化。 </p>
 <h4 id="2-5-3-profile详情"><a href="#2-5-3-profile详情" class="headerlink" title="2.5.3 profile详情"></a><strong>2.5.3 profile</strong>详情</h4><blockquote>
 <p>show profiles 能够在做 SQL 优化时帮助我们了解时间都耗费到哪里去了。通过 have_profiling</p>
 <p>参数，能够看到当前 MySQL 是否支持 profile 操作：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> @<span class="hljs-variable">@have</span>_profiling ;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/fd836af72a9b47e787828176d75bdb09.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/fd836af72a9b47e787828176d75bdb09.png" srcset="/img/loading.gif" lazyload></p>
 <p>可以看到，当前 MySQL 是支持 profile 操作的，但是开关是关闭的。可以通过 set语句在session/global 级别开启 profiling ：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SET profiling = 1;<br></code></pre></td></tr></table></figure>
 
@@ -516,16 +516,16 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 查看每一条SQL的耗时基本情况</span><br><span class="hljs-keyword">show</span> profiles;<br><span class="hljs-comment">-- 查看指定query_id的SQL语句各个阶段的耗时情况</span><br><span class="hljs-keyword">show</span> profile <span class="hljs-keyword">for</span> query query_id;<br><span class="hljs-comment">-- 查看指定query_id的SQL语句CPU的使用情况</span><br><span class="hljs-keyword">show</span> profile cpu <span class="hljs-keyword">for</span> query query_id;<br></code></pre></td></tr></table></figure>
 </blockquote>
 <p>查看每一条SQL的耗时情况:</p>
-<p> <img src="../img/eefb9277fcdc4298b918ff29daa41880.png" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="img/eefb9277fcdc4298b918ff29daa41880.png" srcset="/img/loading.gif" lazyload></p>
 <p>查看指定 SQL 各个阶段的耗时情况 :</p>
-<p><img src="../img/18afd3f88aff4747ab0d4dab776bcf73.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/18afd3f88aff4747ab0d4dab776bcf73.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="2-5-4-执行计划-explain"><a href="#2-5-4-执行计划-explain" class="headerlink" title="2.5.4 执行计划 explain"></a><strong>2.5.4 执行计划 explain</strong></h4><blockquote>
 <p><strong>EXPLAIN</strong> 或者 <strong>DESC</strong> 命令获取 MySQL 如何执行 SELECT 语句的信息，包括在 SELECT 语句执行过程中表如何连接和连接的顺序。</p>
 <p>-- 直接在 select 语句之前加上关键字 explain / desc</p>
 <ul>
 <li>  <strong>EXPLAIN SELECT 字段列表 FROM 表名 WHERE 条件 ;</strong></li>
 </ul>
-<p><img src="../img/064ab2c4501e42c399d83bf9a8952108.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/064ab2c4501e42c399d83bf9a8952108.png" srcset="/img/loading.gif" lazyload></p>
 <p>Explain 执行计划中部分字段的含义 :</p>
 </blockquote>
 <table>
@@ -636,50 +636,50 @@
 <ul>
 <li>  <strong>select * from tb_sku where id = 1\G;</strong></li>
 </ul>
-<p><img src="../img/6bf10564758841a49cbfe3f89f1ad543.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/6bf10564758841a49cbfe3f89f1ad543.png" srcset="/img/loading.gif" lazyload></p>
 <p>可以看到即使有 1000w 的数据 , 根据 id 进行数据查询 , 性能依然很快，因为主键 id 是有索引的。 <strong>2.</strong> 那么接下来，我们再来根据 sn 字段进行查询，执行如下 SQL ：</p>
 <ul>
 <li>   <strong>select* from tb_sku where sn = ‘100000003145001’;</strong></li>
 </ul>
-<p><img src="../img/c15a873e6b594a8896d3795e139768fc.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/c15a873e6b594a8896d3795e139768fc.png" srcset="/img/loading.gif" lazyload></p>
 <p>我们可以看到根据 sn 字段进行查询，查询返回了一条数据，结果耗时 14.08 sec ，就是因为 sn 没有索引，而造成查询效率很低。</p>
 <p><strong>3.</strong> 那么我们可以针对于 sn 字段，建立一个索引，建立了索引之后，我们再次根据 sn 进行查询，再来看一下查询耗时情况。</p>
 <p>创建索引：</p>
 <ul>
 <li>  <strong>create index idx_sku_sn on tb_sku(sn) ;</strong></li>
 </ul>
-<p><img src="../img/420c188f8be94c85a1219aa4edda4c28.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/420c188f8be94c85a1219aa4edda4c28.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>4.</strong> 然后再次执行相同的 SQL 语句，再次查看 SQL 的耗时。</p>
 <ul>
 <li>  <strong>select * from tb_sku where sn = ‘100000003145001’;</strong></li>
 </ul>
-<p><img src="../img/707e95fe139b4ef6902518dd01e4015c.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/707e95fe139b4ef6902518dd01e4015c.png" srcset="/img/loading.gif" lazyload></p>
 <p>我们明显会看到， sn 字段建立了索引之后，查询性能大大提升。建立索引前后，查询耗时都不是一个数量级的。</p>
 </blockquote>
 <h4 id="2-6-2-最左前缀法则"><a href="#2-6-2-最左前缀法则" class="headerlink" title="2.6.2 最左前缀法则"></a><strong>2.6.2</strong> <strong>最左前缀法则</strong></h4><blockquote>
 <p>如果索引了多列（联合索引），要遵守最左前缀法则。最左前缀法则指的是查询从索引的最左列开始，并且不跳过索引中的列。如果跳跃某一列，索引将会部分失效( 后面的字段索引失效 ) 。</p>
 <p>以 tb_user 表为例，我们先来查看一下之前 tb_user 表所创建的索引。</p>
-<p><img src="../img/76f0217a2d10458eb3e59ba5b3c20f5a.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/76f0217a2d10458eb3e59ba5b3c20f5a.png" srcset="/img/loading.gif" lazyload></p>
 <p>在 tb_user 表中，有一个联合索引，这个联合索引涉及到三个字段，顺序分别为： profession ，age， status 。</p>
 <p>对于最左前缀法则指的是，查询时，最左变的列，也就是 profession 必须存在，否则索引全部失效。而且中间不能跳过某一列，否则该列后面的字段索引将失效。 接下来，我们来演示几组案例，看一下具体的执行计划：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs mysql">-- 1 索引123都在<br>explain select * from tb_user where profession = &#x27;软件工程&#x27; and age = 31 and status = &#x27;0&#x27;;<br><br>-- 2 仅有索引12<br>explain select * from tb_user where profession = &#x27;软件工程&#x27; and age = 31;<br><br>-- 3 仅有索引1<br>explain select * from tb_user where profession = &#x27;软件工程&#x27;;<br><br>-- 4 仅有索引23<br>explain select * from tb_user where age = 31 and status = &#x27;0&#x27;;<br><br>-- 5 仅有索引3<br>explain select * from tb_user where status = &#x27;0&#x27;;<br><br>-- 6 仅有13<br>explain select * from tb_user where profession = &#x27;软件工程&#x27; and status = &#x27;0&#x27;;<br></code></pre></td></tr></table></figure>
 
 <p>1.</p>
-<p><img src="../img/84d8d7da40274aa1ac011970fa52c304.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/84d8d7da40274aa1ac011970fa52c304.png" srcset="/img/loading.gif" lazyload></p>
 <p>2.</p>
-<p><img src="../img/ea140fb3a56540af888ed625e7726a86.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/ea140fb3a56540af888ed625e7726a86.png" srcset="/img/loading.gif" lazyload></p>
 <p>3.</p>
-<p><img src="../img/cfdf54c9c5914609b347423abbeaadd4.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/cfdf54c9c5914609b347423abbeaadd4.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li>  以上的这三组测试中，我们发现<strong>只要联合索引最左边的字段</strong> <strong>profession</strong>存在，索引就会生效，只不过索引的长度不同。 而且由以上三组测试，我们也可以推测出profession字段索引长度为47、age字段索引长度为2、status字段索引长度为5。</li>
 </ul>
-<p>4.<img src="../img/dc29003b70fb4afdb83566d95fe97d43.png" srcset="/img/loading.gif" lazyload></p>
+<p>4.<img src="img/dc29003b70fb4afdb83566d95fe97d43.png" srcset="/img/loading.gif" lazyload></p>
 <p>5.</p>
-<p><img src="../img/d3720af6c42b456089fc0d9441157fe7.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/d3720af6c42b456089fc0d9441157fe7.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li>  而通过上面的这两组测试，我们也可以看到索引并未生效，原因是因为不满足最左前缀法则，联合索引最左边的列profession不存在。</li>
 </ul>
-<p>6.<img src="../img/139af7bb766b458b945284d90325d4d8.png" srcset="/img/loading.gif" lazyload></p>
+<p>6.<img src="img/139af7bb766b458b945284d90325d4d8.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li>  上述的SQL查询时，存在profession字段，最左边的列是存在的，索引满足最左前缀法则的基本条件。但是查询时，跳过了age这个列，所以后面的列索引是不会使用的，也就是索引部分生效，所以索引的长度就是47。</li>
 </ul>
@@ -688,9 +688,9 @@
 <p>联合索引中，出现范围查询 (&gt;,&lt;) ，范围查询右侧的列索引失效。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">explain select * from tb_user where profession = &#x27;软件工程&#x27; and age &gt; 30 and status = &#x27;0&#x27;;<br><br>explain select * from tb_user where profession = &#x27;软件工程&#x27; and age &gt;= 30 and status = &#x27;0&#x27;;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/ce63fd6302564447b703993fa5835546.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/ce63fd6302564447b703993fa5835546.png" srcset="/img/loading.gif" lazyload></p>
 <p>当范围查询使用 &gt; 或 &lt; 时，走联合索引了，但是索引的长度为 49 ，就说明范围查询右边的 status 字段是没有走索引的。</p>
-<p><img src="../img/ae9986d9bde24cf682d92623ae28710a.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/ae9986d9bde24cf682d92623ae28710a.png" srcset="/img/loading.gif" lazyload></p>
 <p>当范围查询使用 &gt;= 或 &lt;= 时，走联合索引了，但是索引的长度为 54 ，就说明所有的字段都是走索引的。</p>
 <p><strong>所以，在业务允许的情况下，尽可能的使用类似于 &gt;= 或 &lt;= 这类的范围查询，而避免使用 &gt; 或 &lt; 。</strong></p>
 </blockquote>
@@ -735,7 +735,7 @@
 <p>接下来，我们来看一组 SQL 的执行计划，看看执行计划的差别，然后再来具体做一个解析。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">explain select id, profession from tb_user where profession = &#x27;软件工程&#x27; and age = 31 and status = &#x27;0&#x27; ;<br>explain select id,profession,age, status from tb_user where profession = &#x27;软件工程&#x27; and age = 31 and status = &#x27;0&#x27; ;<br>explain select id,profession,age, status, name from tb_user where profession = &#x27;软件工程&#x27; and age = 31 and status = &#x27;0&#x27; ;<br>explain select * from tb_user where profession = &#x27;软件工程&#x27; and age = 31 and status = &#x27;0&#x27;;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/9debadb9f8894f81921412a75bc75577.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/9debadb9f8894f81921412a75bc75577.png" srcset="/img/loading.gif" lazyload></p>
 <p>从上述的执行计划我们可以看到，这四条 SQL 语句的执行计划前面所有的指标都是一样的，看不出来差异。但是此时，我们主要关注的是后面的Extra ，前面两天 SQL 的结果为 <strong>Using</strong> <strong>where; Using Index</strong> ; 而后面两条 SQL 的结果为 : <strong>Using index condition</strong> 。</p>
 <table>
 <thead>
@@ -778,16 +778,16 @@
 <li>  <strong>select count(distinct</strong> <strong>substring(<strong>email,1,5</strong>))</strong> / <strong>count</strong><strong>(*)</strong> <strong>from</strong> tb_user ;</li>
 </ul>
 <p><strong>3). 前缀索引的查询流程</strong></p>
-<p><img src="../img/6b1c761bc71e405f88caf261955c5746.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/6b1c761bc71e405f88caf261955c5746.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h4 id="2-6-8-单列索引与联合索引"><a href="#2-6-8-单列索引与联合索引" class="headerlink" title="2.6.8 单列索引与联合索引"></a><strong>2.6.8</strong> <strong>单列索引与联合索引</strong></h4><blockquote>
 <p><strong>单列索引：即一个索引只包含单个列。</strong></p>
 <p><strong>联合索引：即一个索引包含了多个列。</strong></p>
-<p><img src="../img/66bd0625ef424f599431f8f2a194d3a6.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/66bd0625ef424f599431f8f2a194d3a6.png" srcset="/img/loading.gif" lazyload></p>
 <p>phone name 分别有一个单列索引</p>
-<p><img src="../img/1f264bda198a46609c23d3646dad8116.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/1f264bda198a46609c23d3646dad8116.png" srcset="/img/loading.gif" lazyload></p>
 <p>Extra 为空说明发生了回表查询</p>
-<p><img src="../img/2fd768ff1a89486587cc0abe4dd1d7ea.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/2fd768ff1a89486587cc0abe4dd1d7ea.png" srcset="/img/loading.gif" lazyload></p>
 <p>使用单列索引同时查询多个数据时只会用一个索引，同时进行徽标查询</p>
 <p>使用联合索引可以避免回表查询</p>
 <p>例： create unique index idx_user_phone_name on tb_user(phone,name);</p>
@@ -825,9 +825,9 @@
 <h4 id="3-1-2-大批量插入数据"><a href="#3-1-2-大批量插入数据" class="headerlink" title="3.1.2 大批量插入数据"></a><strong>3.1.2</strong> <strong>大批量插入数据</strong></h4><blockquote>
 <p>如果一次性需要插入大批量数据 ( 比如 : 几百万的记录 ) ，使用 insert 语句插入性能较低，此时可以使用MySQL 数据库提供的 load 指令进行插入。操作如下：</p>
 <p>先将本地文件数据上传至Linux：</p>
-<p><img src="../img/e359309863f446dba4e56c14d95c0267.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/e359309863f446dba4e56c14d95c0267.png" srcset="/img/loading.gif" lazyload></p>
 <p>再复制其绝对路径</p>
-<p><img src="../img/b66793b45cf849feb4b7ad98946f3f41.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/b66793b45cf849feb4b7ad98946f3f41.png" srcset="/img/loading.gif" lazyload></p>
 <p>可以执行如下指令，将数据脚本文件中的数据加载到表结构中：</p>
 <p>load data local infile ‘文件路径’ into table ‘表名’ fields terminated by ‘,’ lines terminated by ‘\n’</p>
 <p>即将文件中数据导入表中，每个字段数据以“，”隔开，每行数据以换行隔开。</p>
@@ -845,7 +845,7 @@
 <p>在 InnoDB 存储引擎中，表数据都是根据主键顺序组织存放的，这种存储方式的表称为索引组织表(index organized table IOT)。</p>
 </blockquote>
 <p>行数据，都是存储在聚集索引的叶子节点上的。而我们之前也讲解过 InnoDB 的逻辑结构图：</p>
-<p><img src="../img/d487d9f252b34530bf396354dc6cc72e.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/d487d9f252b34530bf396354dc6cc72e.png" srcset="/img/loading.gif" lazyload></p>
 <p>在 InnoDB 引擎中，数据行是记录在逻辑结构 page 页中的，而每一个页的大小是固定的，默认 16K 。 那也就意味着， 一个页中所存储的行也是有限的，如果插入的数据行row 在该页存储不小将会存储到下一个页中，页与页之间会通过指针连接。</p>
 <ul>
 <li>  2). 页分裂</li>
@@ -856,27 +856,27 @@
 <p> <strong>A. 主键顺序插入效果</strong></p>
 <blockquote>
 <p>① . 从磁盘中申请页， 主键顺序插入</p>
-<p><img src="../img/d4cb25d93c894cadb8a0c75cf20eb497.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/d4cb25d93c894cadb8a0c75cf20eb497.png" srcset="/img/loading.gif" lazyload></p>
 <p>② . 第一个页没有满，继续往第一页插入</p>
-<p><img src="../img/87724fd44b5d4b26af108abf7789a32f.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/87724fd44b5d4b26af108abf7789a32f.png" srcset="/img/loading.gif" lazyload></p>
 <p>③ . 当第一个也写满之后，再写入第二个页，页与页之间会通过指针连接</p>
-<p><img src="../img/eeb9009786684cb5a40dcd4d3ea7b2bc.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/eeb9009786684cb5a40dcd4d3ea7b2bc.png" srcset="/img/loading.gif" lazyload></p>
 <p>④ . 当第二页写满了，再往第三页写入</p>
-<p><img src="../img/5b584835d96c4efa977afbad8a58c8ca.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/5b584835d96c4efa977afbad8a58c8ca.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <p><strong>B. 主键乱序插入效果</strong></p>
 <blockquote>
 <p>  ①. 加入1#,2#页都已经写满了，存放了如图所示的数据</p>
-<p> <img src="../img/02a897fea710431c891f6073c326d4e5.png" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="img/02a897fea710431c891f6073c326d4e5.png" srcset="/img/loading.gif" lazyload></p>
 <p> ② . 此时再插入 id 为 50 的记录，我们来看看会发生什么现象</p>
 <p>         会再次开启一个页，写入新的页中吗？</p>
 <p> 不会。因为，索引结构的叶子节点是有顺序的。按照顺序，应该存储在 47 之后。</p>
 <p> 但是 47 所在的 1# 页，已经写满了，存储不了 50 对应的数据了。 那么此时会开辟一个新的页</p>
-<p> <img src="../img/c192c7de80f5408e9ca48f86962906f4.png" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="img/c192c7de80f5408e9ca48f86962906f4.png" srcset="/img/loading.gif" lazyload></p>
 <p> 但是并不会直接将 50 存入 3# 页，而是会将 1# 页后一半的数据，移动到 3# 页，然后在 3# 页，插入 50 。</p>
-<p> <img src="../img/2e18cd60e0da46f9a2dcdb33f86430af.png" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="img/2e18cd60e0da46f9a2dcdb33f86430af.png" srcset="/img/loading.gif" lazyload></p>
 <p> 移动数据，并插入 id 为 50 的数据之后，那么此时，这三个页之间的数据顺序是有问题的。 1# 的下一个页，应该是3# ， 3# 的下一个页是 2# 。 所以，此时，需要重新设置链表指针。</p>
-<p> <img src="../img/45f82225ac36491cb8cd9280e8376c58.png" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="img/45f82225ac36491cb8cd9280e8376c58.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <p>**上述的这种现象，称之为 “页分裂”**<strong>，是比较耗费性能的操作。</strong>  </p>
 <ul>
@@ -884,16 +884,16 @@
 </ul>
 <blockquote>
 <p>目前表中已有数据的索引结构 ( 叶子节点 ) 如下：</p>
-<p><img src="../img/7553a253186044979694485609d44982.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/7553a253186044979694485609d44982.png" srcset="/img/loading.gif" lazyload></p>
 <p> 当我们对已有数据进行删除时，具体的效果如下:</p>
 <p>当删除一行记录时，实际上记录并没有被物理删除，只是记录被标记（ flaged ）为删除并且它的空间变得允许被其他记录声明使用。</p>
-<p><img src="../img/bdce47d9e2b9416ca783aa1f2e317c0a.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/bdce47d9e2b9416ca783aa1f2e317c0a.png" srcset="/img/loading.gif" lazyload></p>
 <p>当我们继续删除 2# 的数据记录</p>
-<p><img src="../img/8019fb339f7349e681599e65387182d3.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/8019fb339f7349e681599e65387182d3.png" srcset="/img/loading.gif" lazyload></p>
 <p>当页中删除的记录达到 MERGE_THRESHOLD （默认为页的 50% ）， InnoDB 会开始寻找最靠近的页（前或后）看看是否可以将两个页合并以优化空间使用。</p>
-<p><img src="../img/ab20a689b8f54b36b4dbb229fa8aae5b.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/ab20a689b8f54b36b4dbb229fa8aae5b.png" srcset="/img/loading.gif" lazyload></p>
 <p>删除数据，并将页合并之后，再次插入新的数据 20 ，则直接插入 3# 页</p>
-<p><img src="../img/fc24b97a43084a089fc01efad3759ad3.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/fc24b97a43084a089fc01efad3759ad3.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <p>这个里面所发生的合并页的这个现象，就称之为 “页合并”。</p>
 <p>知识小贴士：</p>
@@ -924,10 +924,10 @@
 <blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">explain select id,age,phone from tb_user order by age ;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/224461946d1c40f5972847e5e423b7fb.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/224461946d1c40f5972847e5e423b7fb.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">explain select id,age,phone from tb_user order by age, phone ;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/af04dc759a3c4f90821b31d325669f9d.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/af04dc759a3c4f90821b31d325669f9d.png" srcset="/img/loading.gif" lazyload></p>
 <p>由于 age, phone 都没有索引，所以此时再排序时，出现 Using filesort ， 排序性能较低</p>
 </blockquote>
 <ul>
@@ -941,10 +941,10 @@
 <blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">explain select id,age,phone from tb_user order by age;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/92bb9ef26cbc4dd581367fde7f916a8d.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/92bb9ef26cbc4dd581367fde7f916a8d.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">explain</span> <span class="hljs-keyword">select</span> id,age,phone <span class="hljs-keyword">from</span> tb_user <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> age , phone;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/fd2ed8317afe44ccb77a40e9ccb47a09.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/fd2ed8317afe44ccb77a40e9ccb47a09.png" srcset="/img/loading.gif" lazyload></p>
 <p>建立索引之后，再次进行排序查询，就由原来的 Using filesort ， 变为了 Using index ，性能</p>
 <p>就是比较高的了。</p>
 </blockquote>
@@ -954,7 +954,7 @@
 <blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">explain select id,age,phone from tb_user order by age desc , phone desc ;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/224acf58239c491a96b3e9402cdf2325.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/224acf58239c491a96b3e9402cdf2325.png" srcset="/img/loading.gif" lazyload></p>
 <p>也出现 Using index ， 但是此时 Extra 中出现了 Backward index scan ，这个代表反向扫描索</p>
 <p>引，因为在 MySQL 中我们创建的索引，默认索引的叶子节点是从小到大排序的，而此时我们查询排序时，是从大到小，所以，在扫描时，就是反向扫描，就会出现 Backward index scan 。 在MySQL8版本中，支持降序索引，我们也可以创建降序索引。</p>
 </blockquote>
@@ -964,7 +964,7 @@
 <blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">explain select id,age,phone from tb_user order by phone , age;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/7a1a37594e2f44378712e32789ee2b49.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/7a1a37594e2f44378712e32789ee2b49.png" srcset="/img/loading.gif" lazyload></p>
 <p>排序时 , 也需要满足最左前缀法则 , 否则也会出现 filesort 。因为在创建索引的时候， age 是第一个字段，phone 是第二个字段，所以排序时，也就该按照这个顺序来，否则就会出现 Using</p>
 <p>filesort 。</p>
 </blockquote>
@@ -974,9 +974,9 @@
 <blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">explain select id,age,phone from tb_user order by age asc , phone desc ;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/277c6ea3b37b4f3dac3185c94846b7d2.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/277c6ea3b37b4f3dac3185c94846b7d2.png" srcset="/img/loading.gif" lazyload></p>
 <p>因为创建索引时，如果未指定顺序，默认都是按照升序排序的，而查询时，一个升序，一个降序，此时就会出现Using filesort 。</p>
-<p><img src="../img/ec1be9e95062499e82602d396aae546a.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/ec1be9e95062499e82602d396aae546a.png" srcset="/img/loading.gif" lazyload></p>
 <p>为了解决上述的问题，我们可以创建一个索引，这个联合索引中 age 升序排序， phone 倒序排序</p>
 </blockquote>
 <ul>
@@ -985,7 +985,7 @@
 <blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">create index idx_user_age_phone_ad on tb_user(age asc ,phone desc);<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/7ce8d4e73ad44a34b43c3f04affd5179.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/7ce8d4e73ad44a34b43c3f04affd5179.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <ul>
 <li>   然后再次执行如下SQL</li>
@@ -993,7 +993,7 @@
 <blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">explain select id,age,phone from tb_user order by age asc , phone desc ;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/4e9f606d83534b38905e4403b8b66746.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/4e9f606d83534b38905e4403b8b66746.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <p>由上述的测试 , 我们得出 order by 优化原则 :</p>
 <ul>
@@ -1014,7 +1014,7 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">explain select profession , count(*) from tb_user group by profession ;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/91e46e3646564e9bbf4c81bab7718c2e.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/91e46e3646564e9bbf4c81bab7718c2e.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li>  然后，我们在针对于 profession ， age， status 创建一个联合索引。</li>
 </ul>
@@ -1025,8 +1025,8 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">explain select profession , count(*) from tb_user group by profession ;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/789778ca3e934f64b87fe7525381eef1.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="../img/e08af29826424fbc97e5660b0b8ff879.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/789778ca3e934f64b87fe7525381eef1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/e08af29826424fbc97e5660b0b8ff879.png" srcset="/img/loading.gif" lazyload></p>
 <p>我们发现，如果仅仅根据 age 分组，就会出现 Using temporary ；而如果是根据</p>
 <p>profession,age 两个字段同时分组，则不会出现 Using temporary 。原因是因为对于分组操作，在联合索引中，也是符合最左前缀法则的。</p>
 </blockquote>
@@ -1038,16 +1038,16 @@
 <h3 id="3-5-limit优化"><a href="#3-5-limit优化" class="headerlink" title="3.5 limit优化"></a><strong>3.5 limit</strong>优化</h3><blockquote>
 <p>在数据量比较大时，如果进行 limit 分页查询，在查询时，越往后，分页查询效率越低。</p>
 <p>我们一起来看看执行 limit 分页查询耗时对比：</p>
-<p><img src="../img/b76f6ff34fb44421bba74a2c46e5a469.png" srcset="/img/loading.gif" lazyload> <img src="../img/0e228b86366c43c08f12b12680cd7235.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/b76f6ff34fb44421bba74a2c46e5a469.png" srcset="/img/loading.gif" lazyload> <img src="img/0e228b86366c43c08f12b12680cd7235.png" srcset="/img/loading.gif" lazyload></p>
 <p>通过测试我们会看到，越往后，分页查询效率越低，这就是分页查询的问题所在。</p>
 <p>因为，当在进行分页查询时，如果执行 limit 2000000,10 ，此时需要 MySQL 排序前 2000010 记录，仅仅返回 2000000 - 2000010 的记录，其他记录丢弃，查询排序的代价非常大 。</p>
 </blockquote>
 <p><strong>优化思路</strong> <strong>:</strong> 一般分页查询时，通过创建 覆盖索引 能够比较好地提高性能，可以通过覆盖索引加子查形式进行优化。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">explain select * from tb_sku t , (select id from tb_sku order by id limit 2000000,10) a where t.id = a.id;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/0569a5dfcd104f18a4a5ee75c2e60c19.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/0569a5dfcd104f18a4a5ee75c2e60c19.png" srcset="/img/loading.gif" lazyload></p>
 <p>智能将子查询作为第二个表来匹配，不能作为id值返回</p>
-<p><img src="../img/2c4156caac3f401697ef3fa940df3e94.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/2c4156caac3f401697ef3fa940df3e94.png" srcset="/img/loading.gif" lazyload></p>
 <p>因为MySQL不支持limit 在in中</p>
 <h3 id="3-6-count优化"><a href="#3-6-count优化" class="headerlink" title="3.6 count优化"></a><strong>3.6 count</strong>优化</h3><h4 id="3-6-1-概述"><a href="#3-6-1-概述" class="headerlink" title="3.6.1 概述"></a><strong>3.6.1</strong> <strong>概述</strong></h4><blockquote>
 <p>select count(*) from tb_user ;</p>
@@ -1132,7 +1132,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">create or replace view stu_v_1 as select id,name from student where id &lt;= 10 ;<br>select * from stu_v_1;<br>insert into stu_v_1 values(6,&#x27;Tom&#x27;);<br>insert into stu_v_1 values(17,&#x27;Tom22&#x27;);<br></code></pre></td></tr></table></figure>
 
 <p>执行上述的 SQL ，我们会发现， id 为 6 和 17 的数据都是可以成功插入的。 但是我们执行查询，查询出来的数据，却没有id 为 17 的记录。</p>
-<p><img src="../img/06cbede265e841e3bd4c884fa7897c05.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/06cbede265e841e3bd4c884fa7897c05.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>因为我们在创建视图的时候，指定的条件为 id&lt;=10, id 为 17 的数据，是不符合条件的，所以没有查</p>
 <p>询出来，但是这条数据确实是已经成功的插入到了基表中。</p>
@@ -1186,15 +1186,15 @@
 <p><strong>1).</strong> 为了保证数据库表的安全性，开发人员在操作 tb_user 表时，只能看到的用户的基本字段，<strong>屏蔽手机号和邮箱两个字段。</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql">create view tb_user_view as<br>select id, name, profession, age, gender, status, createtime<br>from tb_user;<br><br>select *<br>from tb_user_view;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/6ab4b8c96d984129b0060875a3c25321.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/6ab4b8c96d984129b0060875a3c25321.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>2).</strong> 查询每个学生所选修的课程（三张表联查），这个功能在很多的业务中都有使用到，为了简化操作，定义一个视图。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mysql">create view tb_stu_course_view as<br>select s.name student_name, s.no student_no, c.name course_name<br>from student s,<br>  student_course sc,<br>  course c<br>where s.id = sc.studentid<br>and sc.courseid = c.id;<br><br>select *<br>from tb_stu_course_view;<br></code></pre></td></tr></table></figure>
 
-<p><img src="../img/5478c174a67442eb9dbdcb7f73246230.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/5478c174a67442eb9dbdcb7f73246230.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h3 id="4-2-存储过程"><a href="#4-2-存储过程" class="headerlink" title="4.2 存储过程"></a><strong>4.2</strong> <strong>存储过程</strong></h3><h4 id="4-2-1-介绍"><a href="#4-2-1-介绍" class="headerlink" title="4.2.1 介绍"></a><strong>4.2.1</strong> <strong>介绍</strong></h4><blockquote>
 <p>                存储过程是事先经过编译并存储在数据库中的一段 SQL 语句的集合，调用存储过程可以简化应用开发人员的很多工作，减少数据在数据库和应用服务器之间的传输，对于提高数据处理的效率是有好处的。存储过程思想上很简单，就是数据库 SQL 语言层面的代码封装与重用。</p>
-<p>        <img src="../img/b5fda1ae0153483ea5672659bf23481f.png" srcset="/img/loading.gif" lazyload></p>
+<p>        <img src="img/b5fda1ae0153483ea5672659bf23481f.png" srcset="/img/loading.gif" lazyload></p>
 <p>        <strong>特点:</strong></p>
 <p>        *   封装，复用 ———————————–&gt; 可以把某一业务SQL封装在存储过程中，需要用到的时候直接调用即可。<br>        *   可以接收参数，也可以返回数据 ——–&gt; 再存储过程中，可以传递参数，也可以接收返回值。<br>        *   减少网络交互，效率提升 —————–&gt; 如果涉及到多条SQL，每执行一次都是一次网络传 输。 而如果封装在存储过程中，我们只需要网络交互一次可能就可以了。</p>
 </blockquote>
@@ -1521,13 +1521,13 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">update tb_user set profession = &#x27;会计&#x27; where id = 23;<br>update tb_user set profession = &#x27;会计&#x27; where id &lt;= 5;<br><br></code></pre></td></tr></table></figure>
 
 <p> 测试完毕之后，检查日志表中的数据是否可以正常插入，以及插入数据的正确性。</p>
-<p><img src="../img/bdb9b7fad9e3482ead2f46f64c398f9e.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/bdb9b7fad9e3482ead2f46f64c398f9e.png" srcset="/img/loading.gif" lazyload></p>
 <p> <strong>C. 删除数据触发器</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mysql">create trigger tb_user_delete_trigger<br>    after delete<br>    on tb_user<br>    for each row<br>begin<br>    insert into user_logs(id, operation, operate_time, operate_id, operate_params)<br>    VALUES (null, &#x27;delete&#x27;, now(), old.id,<br>            concat(&#x27;删除之前的数据: id=&#x27;, old.id, &#x27;,name=&#x27;, old.name, &#x27;, phone=&#x27;,<br>                   old.phone, &#x27;, email=&#x27;, old.email, &#x27;, profession=&#x27;, old.profession));<br>end;<br></code></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">-- 删除数据<br>delete from tb_user where id = 26;<br></code></pre></td></tr></table></figure>
 
-<p> <img src="../img/ac4b19a9facb414b8c55da6a55d458dd.png" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="img/ac4b19a9facb414b8c55da6a55d458dd.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="5-锁"><a href="#5-锁" class="headerlink" title="5. 锁"></a>5. 锁</h2><h3 id="5-1-概述"><a href="#5-1-概述" class="headerlink" title="5.1 概述"></a><strong>5.1</strong> <strong>概述</strong></h3><blockquote>
 <p>锁是计算机协调多个进程或线程并发访问某一资源的机制。在数据库中，除传统的计算资源（ CPU 、RAM、 I/O ）的争用以外，数据也是一种供许多用户共享的资源。如何保证数据并发访问的一致性、有效性是所有数据库必须解决的一个问题，锁冲突也是影响数据库并发访问性能的一个重要因素。从这个角度来说，锁对数据库而言显得尤其重要，也更加复杂。</p>
 <p>MySQL 中的锁，按照锁的粒度分，分为以下三类：</p>
@@ -1544,7 +1544,7 @@
 </blockquote>
 <p><strong>A.</strong> <strong>我们一起先来分析一下不加全局锁，可能存在的问题。</strong></p>
 <p>    假设在数据库中存在这样三张表: tb_stock 库存表， tb_order 订单表， tb_orderlog 订单日志表。</p>
-<p><img src="../img/a4371ebb50d74286afcaa26a7ed3c682.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/a4371ebb50d74286afcaa26a7ed3c682.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li>  在进行数据备份时，先备份了tb_stock库存表。</li>
 <li>  然后接下来，在业务系统中，执行了下单操作，扣减库存，生成订单（更新tb_stock表，插入tb_order表）。</li>
@@ -1556,7 +1556,7 @@
 <p>致 ( 有最新操作的订单信息 , 但是库存数没减 ) 。</p>
 <p>那如何来规避这种问题呢 ? 此时就可以借助于 MySQL 的全局锁来解决。</p>
 <p><strong>B. 再来分析一下加了全局锁后的情况</strong></p>
-<p><img src="../img/180d21f96f834769ae6cab59fba1c0ae.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/180d21f96f834769ae6cab59fba1c0ae.png" srcset="/img/loading.gif" lazyload></p>
 <p>对数据库进行进行逻辑备份之前，先对整个数据库加上全局锁，一旦加了全局锁之后，其他的 DDL 、DML全部都处于阻塞状态，但是可以执行 DQL 语句，也就是处于只读状态，而数据备份就是查询操作。那么数据在进行逻辑备份的过程中，数据库中的数据就是不会发生变化的，这样就保证了数据的一致性和完整性。</p>
 <h4 id="5-2-2-语法"><a href="#5-2-2-语法" class="headerlink" title="5.2.2 语法"></a><strong>5.2.2</strong> <strong>语法</strong></h4><blockquote>
 <p>1). 加全局锁</p>
@@ -1599,10 +1599,10 @@
 </ul>
 <p>特点 :</p>
 <p><strong>A. 读锁</strong></p>
-<p><img src="../img/90bbf200239e4a3d825629e6974f22bb.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/90bbf200239e4a3d825629e6974f22bb.png" srcset="/img/loading.gif" lazyload></p>
 <p>左侧为客户端一，对指定表加了读锁，不会影响右侧客户端二的读，但是会阻塞右侧客户端的写。</p>
 <p><strong>B. 写锁</strong></p>
-<p><img src="../img/5d8ab64cf2ac432c891ae535144570e5.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/5d8ab64cf2ac432c891ae535144570e5.png" srcset="/img/loading.gif" lazyload></p>
 <p>左侧为客户端一，对指定表加了写锁，会阻塞右侧客户端的读和写。</p>
 </blockquote>
 <h4 id="5-3-3-元数据锁"><a href="#5-3-3-元数据锁" class="headerlink" title="5.3.3 元数据锁"></a><strong>5.3.3</strong> <strong>元数据锁</strong></h4><blockquote>
@@ -1648,11 +1648,11 @@
 <p>为了避免 DML 在执行时，加的行锁与表锁的冲突，在 InnoDB 中引入了意向锁，使得表锁不用检查每行数据是否加锁，使用意向锁来减少表锁的检查。</p>
 <p>假如没有意向锁，客户端一对表加了行锁后，客户端二如何给表加表锁呢，来通过示意图简单分析一下：</p>
 <p>首先客户端一，开启一个事务，然后执行 DML 操作，在执行 DML 语句时，会对涉及到的行行锁。</p>
-<p><img src="../img/6db2a15767d34e71bbd3651a6719730e.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/6db2a15767d34e71bbd3651a6719730e.png" srcset="/img/loading.gif" lazyload></p>
 <p>当客户端二，想对这张表加表锁时，会检查当前表是否有对应的行锁，如果没有，则添加表锁，此时就会从第一行数据，检查到最后一行数据，效率较低</p>
 <p>有了意向锁之后 :</p>
 <p>客户端一，在执行 DML 操作时，会对涉及的行加行锁，同时也会对该表加上意向锁.</p>
-<p><img src="../img/0293b8340ac742de9e3f2c33e877f81e.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/0293b8340ac742de9e3f2c33e877f81e.png" srcset="/img/loading.gif" lazyload></p>
 <p>而其他客户端，在对这张表加表锁的时候，会根据该表上所加的意向锁来判定是否可以成功加表锁，而不用逐行判断行锁情况了。</p>
 <p>2). 分类</p>
 <ul>
@@ -1669,15 +1669,15 @@
 <ul>
 <li>  行锁（Record Lock）：锁定单个行记录的锁，防止其他事务对此行进行update和delete。在 RC、RR隔离级别下都支持。</li>
 </ul>
-<p><img src="../img/3d489f96d1ee4bb0a36c99f5a40757f1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/3d489f96d1ee4bb0a36c99f5a40757f1.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li>  间隙锁（Gap Lock）：锁定索引记录间隙（不含该记录），确保索引记录间隙不变，防止其他事务在这个间隙进行insert，产生幻读。在RR隔离级别下都支持。</li>
 </ul>
-<p><img src="../img/530c382cfc894f7daa6c59165b89db14.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/530c382cfc894f7daa6c59165b89db14.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li>  临键锁（Next-Key Lock）：行锁和间隙锁组合，同时锁住数据，并锁住数据前面的间隙Gap。在RR隔离级别下支持。</li>
 </ul>
-<p><img src="../img/f1e20d809c8f4bf8ab66f9d9c04cf60f.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/f1e20d809c8f4bf8ab66f9d9c04cf60f.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h4 id="5-4-2-行锁"><a href="#5-4-2-行锁" class="headerlink" title="5.4.2 行锁"></a><strong>5.4.2</strong> <strong>行锁</strong></h4><blockquote>
 <p>InnoDB 实现了以下两种类型的行锁：</p>
@@ -1753,7 +1753,7 @@
 <p>        *   A. 索引上的等值查询(唯一索引)，给不存在的记录加锁时, 优化为间隙锁 。</p>
 <p>        *   B. 索引上的等值查询(非唯一普通索引)，向右遍历时最后一个值不满足查询需求时，next-key lock 退化为间隙锁.</p>
 <p>         我们知道InnoDB 的 B+ 树索引，叶子节点是有序的双向链表。 假如，我们要根据这个二级索引查询值为18 的数据，并加上共享锁，我们是只锁定 18 这一行就可以了吗？ 并不是，因为是非唯一索引，这个结构中可能有多个18 的存在，所以，在加锁时会继续往后找，找到一个不满足条件的值（当前案例中也就是29 ）。此时会对 18 加临键锁，并对 29 之前的间隙加锁。</p>
-<p>        <img src="../img/5dbcbc91f02f45aea323ea9caab56816.png" srcset="/img/loading.gif" lazyload></p>
+<p>        <img src="img/5dbcbc91f02f45aea323ea9caab56816.png" srcset="/img/loading.gif" lazyload></p>
 <p>        *   C. 索引上的范围查询(唯一索引)–会访问到不满足条件的第一个值为止。</p>
 <p>        查询的条件为 id&gt;=19 ，并添加共享锁。 此时我们可以根据数据库表中现有的数据，将数据分为三个部分：</p>
 <p>        [19]</p>
@@ -1762,7 +1762,7 @@
 <p>        所以数据库数据在加锁是，就是将 19 加了行锁， 25 的临键锁（包含 25 及 25 之前的间隙），正无穷的临键锁( 正无穷及之前的间隙 ) 。</p>
 </blockquote>
 <h2 id="6-InnoDB引擎"><a href="#6-InnoDB引擎" class="headerlink" title="6. InnoDB引擎"></a>6. InnoDB引擎</h2><h3 id="6-1-逻辑存储结构"><a href="#6-1-逻辑存储结构" class="headerlink" title="6.1 逻辑存储结构"></a><strong>6.1</strong> <strong>逻辑存储结构</strong></h3><p>InnoDB 的逻辑存储结构如下图所示 :</p>
-<p><img src="../img/478d9eb4a77a428eb2e90213b6db9589.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/478d9eb4a77a428eb2e90213b6db9589.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <ul>
 <li>  表空间</li>
@@ -1786,10 +1786,10 @@
 </blockquote>
 <h3 id="6-2-架构"><a href="#6-2-架构" class="headerlink" title="6.2 架构"></a><strong>6.2</strong> <strong>架构</strong></h3><h4 id="6-2-1-概述"><a href="#6-2-1-概述" class="headerlink" title="6.2.1 概述"></a><strong>6.2.1</strong> <strong>概述</strong></h4><blockquote>
 <p>MySQL5.5 版本开始，默认使用 InnoDB 存储引擎，它擅长事务处理，具有崩溃恢复特性，在日常开发中使用非常广泛。下面是InnoDB 架构图，左侧为内存结构，右侧为磁盘结构</p>
-<p><img src="../img/26dc205e0d4a44ff9dc1cc0bb82b1fab.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/26dc205e0d4a44ff9dc1cc0bb82b1fab.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h4 id="6-2-2-内存结构"><a href="#6-2-2-内存结构" class="headerlink" title="6.2.2 内存结构"></a><strong>6.2.2</strong> <strong>内存结构</strong></h4><blockquote>
-<p><img src="../img/b097840d3074434898b300e676491a08.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/b097840d3074434898b300e676491a08.png" srcset="/img/loading.gif" lazyload></p>
 <p>在上侧的内存结构中，主要分为这么四大块儿： <strong>Buffer Pool、Change Buffer、Adaptive</strong></p>
 <p><strong>Hash Index、Log Buffer</strong> 。 接下来介绍一下这四个部分</p>
 </blockquote>
@@ -1811,7 +1811,7 @@
 <p>Change Buffer 的意义是什么呢 ?</p>
 </blockquote>
 <p>先来看一幅图，这个是二级索引的结构图：</p>
-<p><img src="../img/a7b35665340746e19fd27ecfed0737f3.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/a7b35665340746e19fd27ecfed0737f3.png" srcset="/img/loading.gif" lazyload></p>
 <p>与聚集索引不同，二级索引通常是非唯一的，并且以相对随机的顺序插入二级索引。同样，删除和更新 可能会影响索引树中不相邻的二级索引页，如果每一次都操作磁盘，会造成大量的磁盘IO 。有了ChangeBuffer之后，我们可以在缓冲池中进行合并处理，减少磁盘 IO</p>
 <h5 id="3-Adaptive-Hash-Index"><a href="#3-Adaptive-Hash-Index" class="headerlink" title="3). Adaptive Hash Index"></a>3). Adaptive Hash Index</h5><blockquote>
 <p>自适应 hash 索引，用于优化对 Buffer Pool 数据的查询。 MySQL 的 innoDB 引擎中虽然没有直接支持hash索引，但是给我们提供了一个功能就是这个自适应 hash 索引。因为前面我们讲到过， hash 索引在进行等值匹配时，一般性能是要高于B+ 树的，因为 hash 索引一般只需要一次 IO 即可，而 B+ 树，可能需要几次匹配，所以hash 索引的效率要高，但是 hash 索引又不适合做范围查询、模糊匹配等。</p>
@@ -1830,21 +1830,21 @@
 <li>  0: 每秒将日志写入并刷新到磁盘一次。</li>
 <li>  2: 日志在每次事务提交后写入，并每秒刷新到磁盘一次。</li>
 </ul>
-<p><img src="../img/fc965b2c8f874d0ea824671059b99e9b.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/fc965b2c8f874d0ea824671059b99e9b.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h4 id="6-2-3-磁盘结构"><a href="#6-2-3-磁盘结构" class="headerlink" title="6.2.3 磁盘结构"></a><strong>6.2.3</strong> <strong>磁盘结构</strong></h4><p>接下来，再来看看 InnoDB 体系结构的右边部分，也就是磁盘结构</p>
-<p><img src="../img/0f319fa1a39d48afa2d76e8eb4fdb09f.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/0f319fa1a39d48afa2d76e8eb4fdb09f.png" srcset="/img/loading.gif" lazyload></p>
 <h5 id="1-System-Tablespace"><a href="#1-System-Tablespace" class="headerlink" title="1). System Tablespace"></a>1). System Tablespace</h5><blockquote>
 <p>系统表空间是更改缓冲区的存储区域。如果表是在系统表空间而不是每个表文件或通用表空间中创建的，它也可能包含表和索引数据。( 在 MySQL5.x 版本中还包含 InnoDB 数据字典、 undolog 等 )</p>
 <p>参数： innodb_data_file_path</p>
-<p><img src="../img/ccbc75cf027644ddbb84d601d23ca4da.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/ccbc75cf027644ddbb84d601d23ca4da.png" srcset="/img/loading.gif" lazyload></p>
 <p>系统表空间，默认的文件名叫 ibdata1 。</p>
 </blockquote>
 <h5 id="2-File-Per-Table-Tablespaces"><a href="#2-File-Per-Table-Tablespaces" class="headerlink" title="2). File-Per-Table Tablespaces"></a>2). File-Per-Table Tablespaces</h5><blockquote>
 <p>如果开启了 innodb_file_per_table 开关 ，则每个表的文件表空间包含单个 InnoDB 表的数据和索引 ，并存储在文件系统上的单个数据文件中。</p>
 <p>开关参数： innodb_file_per_table ，该参数默认开启。</p>
 <p>那也就是说，我们没创建一个表，都会产生一个表空间文件，如图：</p>
-<p><img src="../img/62a8f1d6be984cb6b3c7fe425a95536d.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/62a8f1d6be984cb6b3c7fe425a95536d.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h5 id="3-General-Tablespaces"><a href="#3-General-Tablespaces" class="headerlink" title="3). General Tablespaces"></a>3). General Tablespaces</h5><blockquote>
 <p>通用表空间，需要通过 CREATE TABLESPACE 语法创建通用表空间，在创建表时，可以指定该表空间。</p>
@@ -1866,11 +1866,11 @@
 <h5 id="7-Redo-Log"><a href="#7-Redo-Log" class="headerlink" title="7). Redo Log"></a>7). Redo Log</h5><blockquote>
 <p>重做日志，是用来实现事务的持久性。该日志文件由两部分组成：重做日志缓冲（ redo log buffer）以及重做日志文件（ redo log ） , 前者是在内存中，后者在磁盘中。当事务提交之后会把所有修改信息都会存到该日志中, 用于在刷新脏页到磁盘时 , 发生错误时 , 进行数据恢复使用。</p>
 <p>以循环方式写入重做日志文件，涉及两个文件：</p>
-<p><img src="../img/bbfb138dce054c54ac505d5ba599942e.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/bbfb138dce054c54ac505d5ba599942e.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h4 id="6-2-4-后台线程"><a href="#6-2-4-后台线程" class="headerlink" title="6.2.4 后台线程"></a><strong>6.2.4</strong> <strong>后台线程</strong></h4><p>前面我们介绍了 InnoDB 的内存结构，以及磁盘结构，那么内存中我们所更新的数据，又是如何到磁盘中的呢？ 此时，就涉及到一组后台线程，接下来，就来介绍一些InnoDB 中涉及到的后台线程。</p>
-<p><img src="../img/6b778d6e8b054fa391896f11ea801130.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="../img/88c44611ca854578bc75a755d694c7a9.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/6b778d6e8b054fa391896f11ea801130.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/88c44611ca854578bc75a755d694c7a9.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>在 InnoDB 的后台线程中，分为 4 类，分别是：</p>
 <ul>
@@ -1918,7 +1918,7 @@
 <ul>
 <li>  show engine innodb status \G;</li>
 </ul>
-<p><img src="../img/45e010a9a0bf4806bfeac7c3b545bea8.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/45e010a9a0bf4806bfeac7c3b545bea8.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h5 id="3-Purge-Thread"><a href="#3-Purge-Thread" class="headerlink" title="3). Purge Thread"></a>3). Purge Thread</h5><blockquote>
 <p>主要用于回收事务已经提交了的 undo log ，在事务提交之后， undo log 可能不用了，就用它来回收。</p>
@@ -1937,10 +1937,10 @@
 <li>  持久性（Durability）：事务一旦提交或回滚，它对数据库中的数据的改变就是永久的。</li>
 </ul>
 <p>那实际上，我们研究事务的原理，就是研究 MySQL 的 InnoDB 引擎是如何保证事务的这四大特性的。</p>
-<p><img src="../img/c14afbc4d4644508a16c5a1b61c8ab45.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/c14afbc4d4644508a16c5a1b61c8ab45.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <p>而对于这四大特性，实际上分为两个部分。 其中的原子性、一致性、持久化，实际上是由 InnoDB 中的两份日志来保证的，一份是redo log 日志，一份是 undo log 日志。 而持久性是通过数据库的锁，加上MVCC 来保证的。</p>
-<p><img src="../img/ce619ddac6d444478138bdea36b46da2.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/ce619ddac6d444478138bdea36b46da2.png" srcset="/img/loading.gif" lazyload></p>
 <p>我们在讲解事务原理的时候，主要就是来研究一下 redolog ， undolog 以及 MVCC 。</p>
 <p>3).事务隔离级别</p>
 <p>隔离级别定义了一个事务对其他并发事务的可见性和影响范围。MySQL提供了四个标准的隔离级别：</p>
@@ -1996,9 +1996,9 @@
 <p>file ） , 前者是在内存中，后者在磁盘中。当事务提交之后会把所有修改信息都存到该日志文件中 , 用于在刷新脏页到磁盘, 发生错误时 , 进行数据恢复使用。</p>
 <p>如果没有 redolog ，可能会存在什么问题的？ 我们一起来分析一下</p>
 <p>        我们知道，在InnoDB 引擎中的内存结构中，主要的内存区域就是缓冲池，在缓冲池中缓存了很多的数据页。 当我们在一个事务中，执行多个增删改的操作时，InnoDB 引擎会先操作缓冲池中的数据，如果缓冲区没有对应的数据，会通过后台线程将磁盘中的数据加载出来，存放在缓冲区中，然后将缓冲池中的数据修改，修改后的数据页我们称为脏页。 而脏页则会在一定的时机，通过后台线程刷新到磁盘中，从而保证缓冲区与磁盘的数据一致。 而缓冲区的脏页数据并不是实时刷新的，而是一段时间之后将缓冲区的数据刷新到磁盘中，假如刷新到磁盘的过程出错了，而提示给用户事务提交成功，而数据却没有持久化下来，这就出现问题了，没有保证事务的持久性。</p>
-<p><img src="../img/8374ccc68adb44bebff22cb209686575.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/8374ccc68adb44bebff22cb209686575.png" srcset="/img/loading.gif" lazyload></p>
 <p>那么，如何解决上述的问题呢？ 在 InnoDB 中提供了一份日志 redo log ，接下来我们再来分析一下，通过redolog 如何解决这个问题。</p>
-<p><img src="../img/0d2140662ae2475cbb8ba4a72d15402c.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/0d2140662ae2475cbb8ba4a72d15402c.png" srcset="/img/loading.gif" lazyload></p>
 <p>        有了redolog 之后，当对缓冲区的数据进行增删改之后，会首先将操作的数据页的变化，记录在 redolog buffer中。在事务提交时，会将 redo log buffer 中的数据刷新到 redo log 磁盘文件中。过一段时间之后，如果刷新缓冲区的脏页到磁盘时，发生错误，此时就可以借助于redo log 进行数据恢复，这样就保证了事务的持久性。 而如果脏页成功刷新到磁盘 或 或者涉及到的数据已经落盘，此时redolog 就没有作用了，就可以删除了，所以存在的两个 redolog 文件是循环写的。</p>
 <p>那为什么每一次提交事务，要刷新 redo log 到磁盘中呢，而不是直接将 buffer pool 中的脏页刷新到磁盘呢 ?</p>
 <p>因为在业务操作中，我们操作数据一般都是随机读写磁盘的，而不是顺序读写磁盘。 而 redo log 在往磁盘文件中写入数据，由于是日志文件，所以都是顺序写的。顺序写的效率，要远大于随机写。 这种先写日志的方式，称之为 WAL （ Write-Ahead Logging ）。</p>
@@ -2026,7 +2026,7 @@
 <p>使得读写操作没有冲突，快照读为 MySQL 实现 MVCC 提供了一个非阻塞读功能。 MVCC 的具体实现，还需要依赖于数据库记录中的三个隐式字段、undo log 日志、 readView 。</p>
 </blockquote>
 <h4 id="6-4-2-隐藏字段"><a href="#6-4-2-隐藏字段" class="headerlink" title="6.4.2 隐藏字段"></a><strong>6.4.2</strong> <strong>隐藏字段</strong></h4><h5 id="6-4-2-1-介绍"><a href="#6-4-2-1-介绍" class="headerlink" title="6.4.2.1 介绍"></a><strong>6.4.2.1</strong> <strong>介绍</strong></h5><blockquote>
-<p><img src="../img/1401e1576cc647298e3f5bcd4e3e2942.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/1401e1576cc647298e3f5bcd4e3e2942.png" srcset="/img/loading.gif" lazyload></p>
 <p>当我们创建了上面的这张表，我们在查看表结构的时候，就可以显式的看到这三个字段。 实际上除了这两个个字段以外，InnoDB 还会自动的给我们添加三个隐藏字段及其含义分别是：</p>
 <table>
 <thead>
@@ -2055,31 +2055,31 @@
 <p>进入服务器中的 /var/lib/mysql/itcast/ , 查看 stu 的表结构信息 , 通过如下指令 :</p>
 <p><strong>ibd2sdi course.ibd</strong></p>
 <p>查看到的表结构信息中，有一栏 columns ，在其中我们会看到处理我们建表时指定的字段以外，还有额外的两个字段 分别是：DB_TRX_ID 、 DB_ROLL_PTR ，<strong>因为该表有主键</strong>，所以没有 DB_ROW_ID隐藏字段。</p>
-<p><img src="../img/c29f09a93cb94b96af7f1988fc46748c.png" srcset="/img/loading.gif" lazyload> <img src="../img/52ca46b2ea834a0bac48e5049a133220.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="../img/d6d4059e4e164312bace58760ce37b7e.png" srcset="/img/loading.gif" lazyload> <img src="../img/cdbd83f212f242a4a79c78a977014f11.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/c29f09a93cb94b96af7f1988fc46748c.png" srcset="/img/loading.gif" lazyload> <img src="img/52ca46b2ea834a0bac48e5049a133220.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/d6d4059e4e164312bace58760ce37b7e.png" srcset="/img/loading.gif" lazyload> <img src="img/cdbd83f212f242a4a79c78a977014f11.png" srcset="/img/loading.gif" lazyload></p>
 </blockquote>
 <h4 id="6-4-3-undolog"><a href="#6-4-3-undolog" class="headerlink" title="6.4.3 undolog"></a><strong>6.4.3 undolog</strong></h4><h5 id="6-4-3-1-介绍"><a href="#6-4-3-1-介绍" class="headerlink" title="6.4.3.1 介绍"></a><strong>6.4.3.1</strong> <strong>介绍</strong></h5><blockquote>
 <p>回滚日志，在insert、update、delete的时候产生的便于数据回滚的日志。当insert的时候，产生的undo log日志只在回滚时需要，在事务提交后，可被立即删除。而update、delete的时候，产生的undo log日志不仅在回滚时需要，在快照读时也需要，不会立即被删除</p>
 </blockquote>
 <h5 id="6-4-3-2-版本链"><a href="#6-4-3-2-版本链" class="headerlink" title="6.4.3.2 版本链"></a><strong>6.4.3.2</strong> <strong>版本链</strong></h5><blockquote>
 <p>有一张表原始数据为：</p>
-<p><img src="../img/75caa8dfcb104531a00f287f30ca2c42.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/75caa8dfcb104531a00f287f30ca2c42.png" srcset="/img/loading.gif" lazyload></p>
 <p>DB_TRX_ID : 代表最近修改事务 ID ，记录插入这条记录或最后一次修改该记录的事务 ID ，是</p>
 <p>自增的。</p>
 <p>DB_ROLL_PTR ： 由于这条数据是才插入的，没有被更新过，所以该字段值为 null 。</p>
 <p>然后，有四个并发事务同时在访问这张表</p>
 <p>A. 第一步</p>
-<p><img src="../img/0462635f13a54edd9fb6a73605a97e72.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/0462635f13a54edd9fb6a73605a97e72.png" srcset="/img/loading.gif" lazyload></p>
 <p>当事务 2 执行第一条修改语句时，会记录 undo log 日志，记录数据变更之前的样子 ; 然后更新记录，并且记录本次操作的事务ID ，<strong>回滚指针</strong>，回滚指针用来指定如果发生回滚，回滚到哪一个版本。</p>
-<p><img src="../img/0db65e6666ea45e5989b399c96a4cf62.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/0db65e6666ea45e5989b399c96a4cf62.png" srcset="/img/loading.gif" lazyload></p>
 <p>B. 第二步</p>
-<p><img src="../img/b1fa7fd1cae248b7ba5aaa9b4d4d7535.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/b1fa7fd1cae248b7ba5aaa9b4d4d7535.png" srcset="/img/loading.gif" lazyload></p>
 <p>当事务 3 执行第一条修改语句时，也会记录 undo log 日志，记录数据变更之前的样子 ; 然后更新记录，并且记录本次操作的事务ID ，回滚指针，回滚指针用来指定如果发生回滚，回滚到哪一个版本。</p>
-<p><img src="../img/38fd6276c89943f7be07e5dcc7113e84.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/38fd6276c89943f7be07e5dcc7113e84.png" srcset="/img/loading.gif" lazyload></p>
 <p>C. 第三步</p>
-<p><img src="../img/4fb79eda60ef4b638bed5372c4aaf80a.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/4fb79eda60ef4b638bed5372c4aaf80a.png" srcset="/img/loading.gif" lazyload></p>
 <p>当事务 4 执行第一条修改语句时，也会记录 undo log 日志，记录数据变更之前的样子 ; 然后更新记录，并且记录本次操作的事务ID ，回滚指针，回滚指针用来指定如果发生回滚，回滚到哪一个版本。</p>
-<p><img src="../img/84f566d5699b4ac796eb84d177c6fb17.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/84f566d5699b4ac796eb84d177c6fb17.png" srcset="/img/loading.gif" lazyload></p>
 <p>最终我们发现，不同事务或相同事务对同一条记录进行修改，会导致该记录的 undolog 生成一条记录版本链表，链表的头部是最新的旧记录，链表尾部是最早的旧记录。</p>
 </blockquote>
 <h4 id="6-4-4-readview"><a href="#6-4-4-readview" class="headerlink" title="6.4.4 readview"></a><strong>6.4.4 readview</strong></h4><blockquote>
@@ -2150,32 +2150,32 @@
 <p>RC隔离级别下，在事务中<strong>每一次执行</strong>快照读时生成ReadView。</p>
 <p>我们就来分析事务 5 中，两次快照读读取数据，是如何获取数据的 ?</p>
 <p>在事务 5 中，查询了两次 id 为 30 的记录，由于隔离级别为 Read Committed ，所以每一次进行快照读都会生成一个ReadView ，那么两次生成的 ReadView 如下。</p>
-<p><img src="../img/23523826d6b04c439c13b1e3fc7ac06a.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/23523826d6b04c439c13b1e3fc7ac06a.png" srcset="/img/loading.gif" lazyload></p>
 <p>那么这两次快照读在获取数据时，就需要根据所生成的 ReadView 以及 ReadView 的版本链访问规则，到undolog 版本链中匹配数据，最终决定此次快照读返回的数据。</p>
 </blockquote>
 <p><strong>A. 先来看第一次快照读具体的读取过程：</strong></p>
-<p><img src="../img/10e147d17a95458fbe8a3d5f17a0afc9.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/10e147d17a95458fbe8a3d5f17a0afc9.png" srcset="/img/loading.gif" lazyload></p>
 <p>在进行匹配时，会从 undo log 的版本链，从上到下进行挨个匹配：</p>
 <ul>
-<li>  先匹配<img src="../img/a0f200cda95a47a39e8ce14829ca71cf.png" srcset="/img/loading.gif" lazyload>这条记录，这条记录对应的trx_id为4，也就是将4带入右侧的匹配规则中。 ①不满足 ②不满足 ③不满足 ④也不满足 ，都不满足，则继续匹配undo log版本链的下一条。</li>
-<li>  再匹配第二条<img src="../img/79121bb4e81e4793adee57bec8fdf72a.png" srcset="/img/loading.gif" lazyload>，这条记录对应的trx_id为3，也就是将3带入右侧的匹配规则中。①不满足 ②不满足 ③不满足 ④也不满足 ，都不满足，则继续匹配undo log版本链的下一条。</li>
-<li>  再匹配第三条<img src="../img/16b6b79692ab45f5b7823a4459f1a3cb.png" srcset="/img/loading.gif" lazyload>，这条记录对应的trx_id为2，也就是将2带入右侧的匹配规则中。①不满足 ②满足 终止匹配，此次快照读，返回的数据就是版本链中记录的这条数据。</li>
+<li>  先匹配<img src="img/a0f200cda95a47a39e8ce14829ca71cf.png" srcset="/img/loading.gif" lazyload>这条记录，这条记录对应的trx_id为4，也就是将4带入右侧的匹配规则中。 ①不满足 ②不满足 ③不满足 ④也不满足 ，都不满足，则继续匹配undo log版本链的下一条。</li>
+<li>  再匹配第二条<img src="img/79121bb4e81e4793adee57bec8fdf72a.png" srcset="/img/loading.gif" lazyload>，这条记录对应的trx_id为3，也就是将3带入右侧的匹配规则中。①不满足 ②不满足 ③不满足 ④也不满足 ，都不满足，则继续匹配undo log版本链的下一条。</li>
+<li>  再匹配第三条<img src="img/16b6b79692ab45f5b7823a4459f1a3cb.png" srcset="/img/loading.gif" lazyload>，这条记录对应的trx_id为2，也就是将2带入右侧的匹配规则中。①不满足 ②满足 终止匹配，此次快照读，返回的数据就是版本链中记录的这条数据。</li>
 </ul>
 <p><strong>B. 再来看第二次快照读具体的读取过程:</strong></p>
-<p><img src="../img/cf9f6274ce6749cfb318f3d2fb284a60.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/cf9f6274ce6749cfb318f3d2fb284a60.png" srcset="/img/loading.gif" lazyload></p>
 <p>在进行匹配时，会从 undo log 的版本链，从上到下进行挨个匹配：</p>
 <ul>
-<li>  先匹配<img src="../img/fd42f0e90b0843e9b1ec1bae93aeab03.png" srcset="/img/loading.gif" lazyload>这条记录，这条记录对应的trx_id为4，也就是将4带入右侧的匹配规则中。 ①不满足 ②不满足 ③不满足 ④也不满足 ，都不满足，则继续匹配undo log版本链的下一条。</li>
-<li>  再匹配第二条<img src="../img/258aa99f52e846e8b9224002681e26ae.png" srcset="/img/loading.gif" lazyload>，这条记录对应的trx_id为3，也就是将3带入右侧的匹配规则中。①不满足 ②满足 。终止匹配，此次快照读，返回的数据就是版本链中记录的这条数据。</li>
+<li>  先匹配<img src="img/fd42f0e90b0843e9b1ec1bae93aeab03.png" srcset="/img/loading.gif" lazyload>这条记录，这条记录对应的trx_id为4，也就是将4带入右侧的匹配规则中。 ①不满足 ②不满足 ③不满足 ④也不满足 ，都不满足，则继续匹配undo log版本链的下一条。</li>
+<li>  再匹配第二条<img src="img/258aa99f52e846e8b9224002681e26ae.png" srcset="/img/loading.gif" lazyload>，这条记录对应的trx_id为3，也就是将3带入右侧的匹配规则中。①不满足 ②满足 。终止匹配，此次快照读，返回的数据就是版本链中记录的这条数据。</li>
 </ul>
 <h5 id="6-4-5-3-RR隔离级别"><a href="#6-4-5-3-RR隔离级别" class="headerlink" title="6.4.5.3 RR隔离级别"></a><strong>6.4.5.3 RR</strong>隔离级别</h5><blockquote>
 <p>RR 隔离级别下，仅在事务中第一次执行快照读时生成 ReadView ，后续复用该 ReadView 。 而 RR 是可重复读，在一个事务中，执行两次相同的select 语句，查询到的结果是一样的。</p>
 <p>那 MySQL 是如何做到可重复读的呢 ? 我们简单分析一下就知道了</p>
-<p><img src="../img/491ac9714c3b45cebe2044cdfab600ba.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/491ac9714c3b45cebe2044cdfab600ba.png" srcset="/img/loading.gif" lazyload></p>
 <p>我们看到，在 RR 隔离级别下，只是在事务中第一次快照读时生成 ReadView ，后续都是复用该 ReadView，那么既然 ReadView 都一样， ReadView 的版本链匹配规则也一样， 那么最终快照读返回的结果也是一样的。</p>
 </blockquote>
 <p>所以呢， MVCC 的实现原理就是通过 InnoDB 表的隐藏字段、 UndoLog 版本链、 ReadView 来实现的。 而MVCC + 锁，则实现了事务的隔离性。 而一致性则是由 redolog 与 undolog 保证。</p>
-<p><img src="../img/1f8161407d644fa58f7c5ea8fc0b48d6.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img/1f8161407d644fa58f7c5ea8fc0b48d6.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="7-面试题整理"><a href="#7-面试题整理" class="headerlink" title="7.面试题整理"></a>7.面试题整理</h2><ol>
 <li><p>事务acid（滴滴+）</p>
 </li>
